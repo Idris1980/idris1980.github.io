@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#141413">
   <title>Idris Altun</title>
@@ -12,6 +12,7 @@
   <link rel="preload" href="../typsnitt/familjen-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../style.css">
   <link rel="alternate" hreflang="sv" href="../">
+  <script src="../sida.js" defer></script>
 </head>
 <body>
 <div class="sida">
@@ -50,11 +51,22 @@
 
       <ol class="lager">
 
-        <li class="skiva s1"><article>
+        <li class="skiva s1" id="lookfirst"><article>
           <div class="skiva-topp"><span class="nummer">01 / 06</span><span class="status">Open source</span></div>
           <div class="vanster">
             <h3>LookFirst</h3>
             <p class="rubrik-text">Shows what AI-written code does before you run it.</p>
+            <svg class="flode" viewBox="0 0 420 200" role="img" aria-label="AI code goes into LookFirst, which shows what gets built, how the parts connect and where the security gaps are.">
+              <path class="linje flod" d="M104 100 H146"/>
+              <path class="linje flod" d="M266 100 C 280 100 280 30 294 30"/>
+              <path class="linje flod" d="M266 100 H294"/>
+              <path class="linje flod" d="M266 100 C 280 100 280 170 294 170"/>
+              <g class="n d1"><rect x="4" y="80" width="100" height="40" rx="8"/><text x="54" y="100">AI code</text></g>
+              <g class="n huvud d2"><rect x="146" y="74" width="120" height="52" rx="10"/><text x="206" y="100">LookFirst</text></g>
+              <g class="n d3"><rect x="294" y="12" width="122" height="36" rx="8"/><text x="355" y="30">What gets built</text></g>
+              <g class="n d4"><rect x="294" y="82" width="122" height="36" rx="8"/><text x="355" y="100">Connections</text></g>
+              <g class="n varn d5"><rect x="294" y="152" width="122" height="36" rx="8"/><text x="355" y="170">Security gaps</text></g>
+            </svg>
           </div>
           <div class="hoger">
             <div class="kropp">
@@ -66,11 +78,24 @@
           </div>
         </article></li>
 
-        <li class="skiva s2"><article>
+        <li class="skiva s2" id="resident-portal"><article>
           <div class="skiva-topp"><span class="nummer">02 / 06</span><span class="status">Private code</span></div>
           <div class="vanster">
             <h3>Resident Portal</h3>
             <p class="rubrik-text">A portal for landlords and housing cooperatives.</p>
+            <svg class="flode" viewBox="0 0 420 200" role="img" aria-label="Residents and staff use the portal. Every customer has a separate Azure environment with its own portal, database and keys.">
+              <rect class="bak" x="176" y="22" width="236" height="150" rx="12"/>
+              <rect class="bak" x="168" y="31" width="236" height="150" rx="12"/>
+              <path class="linje flod" d="M110 58 C 145 58 145 133 176 133"/>
+              <path class="linje flod" d="M110 158 C 145 158 145 133 176 133"/>
+              <g class="n d2"><rect class="fylld" x="160" y="40" width="236" height="150" rx="12"/><text class="ab liten" x="176" y="62">Customer A, own Azure environment</text><text class="ab liten" x="176" y="172">Own sign-in, colours and logo</text></g>
+              <path class="linje" d="M240 133 H256 M326 133 H336"/>
+              <g class="n huvud d3"><rect x="176" y="116" width="64" height="34" rx="7"/><text x="208" y="133">Portal</text></g>
+              <g class="n d4"><rect x="256" y="116" width="70" height="34" rx="7"/><text x="291" y="133">Database</text></g>
+              <g class="n d5"><rect x="336" y="116" width="54" height="34" rx="7"/><text x="363" y="133">Keys</text></g>
+              <g class="n d1"><rect x="4" y="40" width="106" height="36" rx="8"/><text x="57" y="58">Residents</text></g>
+              <g class="n d1"><rect x="4" y="140" width="106" height="36" rx="8"/><text x="57" y="158">Staff</text></g>
+            </svg>
           </div>
           <div class="hoger">
             <div class="kropp">
@@ -82,11 +107,24 @@
           </div>
         </article></li>
 
-        <li class="skiva s3"><article>
+        <li class="skiva s3" id="cleanroom"><article>
           <div class="skiva-topp"><span class="nummer">03 / 06</span><span class="status">Open source</span></div>
           <div class="vanster">
             <h3>Cleanroom</h3>
             <p class="rubrik-text">A temporary, private database in Azure in about five minutes.</p>
+            <svg class="flode" viewBox="0 0 420 200" role="img" aria-label="The developer reaches the database through a tunnel over Azure Relay. The database sits in a private network the internet can't reach.">
+              <rect class="ram" x="262" y="66" width="154" height="128" rx="12"/>
+              <text class="ab liten" x="276" y="84">Private network</text>
+              <path class="linje flod" d="M108 130 H150"/>
+              <path class="linje flod" d="M234 130 H280"/>
+              <path class="linje stoppad" d="M234 31 C 300 31 339 40 339 66"/>
+              <path class="kryss" d="M292 26 l12 12 M304 26 l-12 12"/>
+              <text class="liten" x="150" y="178">Normal sign-in, no passwords</text>
+              <g class="n d1"><rect x="4" y="110" width="104" height="40" rx="8"/><text x="56" y="130">Developer</text></g>
+              <g class="n huvud d2"><rect x="150" y="108" width="84" height="44" rx="9"/><text x="192" y="130">Relay</text></g>
+              <g class="n d3"><rect x="280" y="110" width="118" height="40" rx="8"/><text x="339" y="130">Azure SQL</text></g>
+              <g class="n d4"><rect x="150" y="14" width="84" height="34" rx="8"/><text x="192" y="31">Internet</text></g>
+            </svg>
           </div>
           <div class="hoger">
             <div class="kropp">
@@ -97,11 +135,23 @@
           </div>
         </article></li>
 
-        <li class="skiva s4"><article>
+        <li class="skiva s4" id="bast-fore"><article>
           <div class="skiva-topp"><span class="nummer">04 / 06</span><span class="status">Open source</span></div>
           <div class="vanster">
             <h3>Bäst före</h3>
             <p class="rubrik-text">Shows what in a Microsoft environment is about to stop working.</p>
+            <svg class="flode" viewBox="0 0 420 200" role="img" aria-label="Bäst före reads your tenant with read-only access and finds expiring secrets, apps with no owner and connections tied to one person.">
+              <path class="linje flod" d="M104 100 H150"/>
+              <text class="liten" x="127" y="66">Read only</text>
+              <path class="linje flod" d="M254 100 C 269 100 269 30 284 30"/>
+              <path class="linje flod" d="M254 100 H284"/>
+              <path class="linje flod" d="M254 100 C 269 100 269 170 284 170"/>
+              <g class="n d1"><rect x="4" y="80" width="100" height="40" rx="8"/><text x="54" y="100">Your tenant</text></g>
+              <g class="n huvud d2"><rect x="150" y="74" width="104" height="52" rx="10"/><text x="202" y="100">Bäst före</text></g>
+              <g class="n varn d3"><rect x="284" y="12" width="132" height="36" rx="8"/><text x="350" y="30">Expiring secret</text></g>
+              <g class="n varn d4"><rect x="284" y="82" width="132" height="36" rx="8"/><text x="350" y="100">App with no owner</text></g>
+              <g class="n varn d5"><rect x="284" y="152" width="132" height="36" rx="8"/><text x="350" y="170">Tied to one person</text></g>
+            </svg>
           </div>
           <div class="hoger">
             <div class="kropp">
@@ -112,12 +162,21 @@
           </div>
         </article></li>
 
-
-        <li class="skiva s5"><article>
+        <li class="skiva s5" id="swapp"><article>
           <div class="skiva-topp"><span class="nummer">05 / 06</span><span class="status">Private code</span></div>
           <div class="vanster">
             <h3>Swapp</h3>
             <p class="rubrik-text">An Android app about time spent on social media.</p>
+            <svg class="flode" viewBox="0 0 420 200" role="img" aria-label="The phone shows 45 minutes in social apps, which equals a walk or a book chapter. The app has no way out to the internet.">
+              <path class="linje flod" d="M116 64 C 156 64 156 42 196 42"/>
+              <path class="linje flod" d="M116 100 C 156 100 156 98 196 98"/>
+              <path class="linje stoppad" d="M116 165 H196"/>
+              <path class="kryss" d="M150 159 l12 12 M162 159 l-12 12"/>
+              <g class="n d1"><rect x="24" y="8" width="92" height="184" rx="16"/><rect class="rad" x="56" y="18" width="28" height="4" rx="2"/><text class="stor" x="70" y="84">45 min</text><text class="liten" x="70" y="110">in social</text><text class="liten" x="70" y="124">apps today</text></g>
+              <g class="n huvud d2"><rect x="196" y="24" width="170" height="36" rx="8"/><text x="281" y="42">= A walk</text></g>
+              <g class="n huvud d3"><rect x="196" y="80" width="170" height="36" rx="8"/><text x="281" y="98">= A book chapter</text></g>
+              <g class="n d4"><rect x="196" y="148" width="104" height="34" rx="8"/><text x="248" y="165">Internet</text></g>
+            </svg>
           </div>
           <div class="hoger">
             <div class="kropp">
@@ -129,15 +188,33 @@
           </div>
         </article></li>
 
-        <li class="skiva s6"><article>
+        <li class="skiva s6" id="copyable-pdf"><article>
           <div class="skiva-topp"><span class="nummer">06 / 06</span><span class="status">Open source</span></div>
           <div class="vanster">
             <h3>Markdown to Copyable PDF</h3>
             <p class="rubrik-text">A VS Code extension that turns Markdown into PDF.</p>
+            <svg class="flode" viewBox="0 0 420 200" role="img" aria-label="A Markdown file goes through the extension and becomes a PDF where commands can be copied and diagrams are drawn in.">
+              <path class="linje flod" d="M104 100 H140"/>
+              <path class="linje flod" d="M250 100 H290"/>
+              <g class="n d1"><rect x="4" y="80" width="100" height="40" rx="8"/><text x="54" y="100">README.md</text></g>
+              <g class="n huvud d2"><rect x="140" y="74" width="110" height="52" rx="10"/><text x="195" y="100">Extension</text></g>
+              <g class="n d3">
+                <rect x="290" y="8" width="126" height="184" rx="6"/>
+                <text class="ab liten" x="302" y="26">PDF</text>
+                <rect class="rad" x="302" y="40" width="92" height="4" rx="2"/>
+                <rect class="rad" x="302" y="50" width="68" height="4" rx="2"/>
+                <rect class="kod" x="302" y="64" width="102" height="30" rx="4"/>
+                <text class="ab" x="312" y="79">az login</text>
+                <text class="ab liten" x="302" y="110">✓ copies cleanly</text>
+                <rect class="fylld" x="302" y="130" width="38" height="20" rx="3"/>
+                <rect class="fylld" x="362" y="160" width="38" height="20" rx="3"/>
+                <path class="linje" d="M340 140 C 352 140 350 170 362 170"/>
+              </g>
+            </svg>
           </div>
           <div class="hoger">
             <div class="kropp">
-              <p>I needed PDFs where commands can be copied and pasted without breaking. The extension splits long commands correctly for PowerShell and bash, draws Mermaid diagrams offline and checks afterwards that the text in the PDF is right.</p>
+              <p>I needed PDFs where commands can be copied and pasted without breaking. The extension splits long commands correctly for PowerShell, bash and cmd, draws Mermaid diagrams offline and reads the finished PDF afterwards to check that every code line can be copied in full.</p>
             </div>
             <p class="teknik">JavaScript / VS Code / Python</p>
             <p class="vagar"><a class="streck" href="https://github.com/Idris1980/copyable-pdf">Code</a></p>
@@ -172,7 +249,10 @@
     <section id="contact" class="kontakt">
       <p>Want to see more of a project, including the ones with private code, or talk about a job? Write to me.</p>
       <a class="mejl streck" href="mailto:kontakt@idrisaltun.com">kontakt@idrisaltun.com</a>
-      <p class="ovrigt"><a class="streck" href="https://github.com/Idris1980">GitHub</a></p>
+      <p class="ovrigt">
+        <button class="kopiera streck" type="button" data-adress="kontakt@idrisaltun.com" data-klar="Copied" data-fel="Couldn't copy" aria-live="polite" hidden>Copy address</button>
+        <a class="streck" href="https://github.com/Idris1980">GitHub</a>
+      </p>
     </section>
   </main>
 
@@ -181,5 +261,18 @@
     <span>idrisaltun.com</span>
   </footer>
 </div>
+
+<nav class="matare" aria-label="Projects">
+  <ol>
+    <li><a class="s1" href="#lookfirst"><span>LookFirst</span></a></li>
+    <li><a class="s2" href="#resident-portal"><span>Resident Portal</span></a></li>
+    <li><a class="s3" href="#cleanroom"><span>Cleanroom</span></a></li>
+    <li><a class="s4" href="#bast-fore"><span>Bäst före</span></a></li>
+    <li><a class="s5" href="#swapp"><span>Swapp</span></a></li>
+    <li><a class="s6" href="#copyable-pdf"><span>Markdown to Copyable PDF</span></a></li>
+  </ol>
+  <p class="matare-namn"><span class="matare-nr">01</span><span class="matare-titel">LookFirst</span></p>
+  <p class="matare-tips"><kbd>J</kbd> <kbd>K</kbd> browse</p>
+</nav>
 </body>
 </html>

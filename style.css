@@ -5,6 +5,9 @@
   font-display: swap;
 }
 
+@property --spred { syntax: "<number>"; inherits: true; initial-value: 1; }
+@property --vrid { syntax: "<angle>"; inherits: true; initial-value: 0deg; }
+
 :root {
   --bg: #141413;
   --text: #efebe4;
@@ -12,6 +15,9 @@
   --svag: #6f6b64;
   --linje: rgba(239, 235, 228, 0.14);
   --typ: "Familjen Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --lager1: #6b5a38;
+  --lager2: #6b3d55;
+  --lager3: #34557a;
   color-scheme: dark;
 }
 
@@ -33,7 +39,7 @@ body {
 ::selection { background: var(--text); color: var(--bg); }
 
 a { color: inherit; }
-a:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
 
 .sida {
   max-width: 1180px;
@@ -42,7 +48,7 @@ a:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
 }
 @media (min-width: 720px) { .sida { padding: 0 40px; } }
 
-/* Länkar med en understrykning som växer fram */
+/* Länkar med en understrykning som drar sig undan */
 .streck {
   text-decoration: none;
   background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
@@ -73,6 +79,7 @@ a:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
   gap: 48px;
   align-items: center;
   padding: 56px 0 120px;
+  view-timeline-name: --intro;
 }
 @media (min-width: 900px) {
   .intro { grid-template-columns: 1.25fr 1fr; padding: 72px 0 160px; }
@@ -82,7 +89,8 @@ a:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
   line-height: 0.88;
   font-weight: 700;
   letter-spacing: -0.045em;
-  margin: 0 0 36px;
+  margin: 0 0 40px;
+  text-shadow: 3px 3px 0 var(--lager1), 6px 6px 0 var(--lager2), 9px 9px 0 var(--lager3);
 }
 .intro h1 span { display: block; color: var(--dampad); }
 .intro .ingress {
@@ -106,11 +114,12 @@ a:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
   position: relative;
   width: 230px;
   height: 230px;
-  transform: rotateX(58deg) rotateZ(-42deg);
+  transform: rotateX(calc(58deg + var(--ty, 0deg))) rotateZ(calc(-42deg + var(--tx, 0deg) + var(--vrid)));
   transform-style: preserve-3d;
   margin-top: 60px;
 }
 .platta {
+  --zz: var(--z);
   position: absolute;
   inset: 0;
   border-radius: 22px;
@@ -121,13 +130,13 @@ a:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
   font-weight: 700;
   font-size: 19px;
   letter-spacing: -0.01em;
-  transform: translateZ(var(--z));
+  transform: translateZ(calc(var(--zz) * var(--spred)));
   transition: transform .6s cubic-bezier(.2, .8, .2, 1);
 }
 .platta.azure { --z: 0px;   --z2: 0px;   background: #1f2c3f; }
 .platta.aws   { --z: 54px;  --z2: 80px;  background: #3a3122; }
 .platta.m365  { --z: 108px; --z2: 160px; background: #2e2540; }
-.stapel:hover .platta { transform: translateZ(var(--z2)); }
+.stapel:hover .platta { --zz: var(--z2); }
 @media (max-width: 899px) {
   .stapel-ram { height: 230px; }
   .stapel { width: 160px; height: 160px; margin-top: 20px; }
@@ -167,12 +176,12 @@ h2 {
   box-shadow: 0 -24px 48px -28px rgba(0, 0, 0, 0.7);
   transform-origin: 50% 0;
 }
-.s1 { --i: 0; --farg: #24372c; }
-.s2 { --i: 1; --farg: #3a2431; }
-.s3 { --i: 2; --farg: #1f2c3f; }
-.s4 { --i: 3; --farg: #3a3122; }
-.s5 { --i: 4; --farg: #2e2540; }
-.s6 { --i: 5; --farg: #1f3434; }
+.s1 { --i: 0; --farg: #24372c; --ljus: #7fb092; }
+.s2 { --i: 1; --farg: #3a2431; --ljus: #c4849f; }
+.s3 { --i: 2; --farg: #1f2c3f; --ljus: #7fa0d0; }
+.s4 { --i: 3; --farg: #3a3122; --ljus: #d0ad72; }
+.s5 { --i: 4; --farg: #2e2540; --ljus: #a892d4; }
+.s6 { --i: 5; --farg: #1f3434; --ljus: #78c0bb; }
 
 .skiva-topp {
   display: flex;
@@ -183,7 +192,7 @@ h2 {
   font-size: 15px;
   color: rgba(239, 235, 228, 0.65);
 }
-.nummer { font-variant-numeric: tabular-nums; }
+.nummer { font-variant-numeric: tabular-nums; color: var(--ljus); }
 .status {
   border: 1px solid rgba(239, 235, 228, 0.3);
   border-radius: 6px;
@@ -193,15 +202,15 @@ h2 {
 }
 
 .skiva h3 {
-  font-size: clamp(36px, 5vw, 64px);
+  font-size: clamp(36px, 4.6vw, 60px);
   line-height: 0.95;
   letter-spacing: -0.035em;
   margin: 0 0 14px;
 }
 .skiva .rubrik-text {
-  font-size: clamp(19px, 2vw, 23px);
+  font-size: clamp(19px, 2vw, 22px);
   line-height: 1.3;
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   color: rgba(239, 235, 228, 0.82);
   max-width: 460px;
 }
@@ -220,22 +229,73 @@ h2 {
 @media (min-width: 900px) {
   .skiva article {
     display: grid;
-    grid-template-columns: 1fr 1.15fr;
+    grid-template-columns: 1fr 1.1fr;
     grid-template-rows: auto 1fr;
     column-gap: 56px;
-    padding: 36px 44px 40px;
+    padding: 32px 44px 36px;
     min-height: 470px;
   }
-  .skiva-topp { grid-column: 1 / -1; }
+  .skiva-topp { grid-column: 1 / -1; margin-bottom: 20px; }
   .skiva .vanster { align-self: start; }
   .skiva .hoger { align-self: end; }
 }
 
+/* Bilden av hur varje projekt fungerar */
+.flode {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 4px 0 20px;
+  overflow: visible;
+}
+@media (min-width: 900px) { .flode { margin-bottom: 0; } }
+.flode text {
+  font-family: var(--typ);
+  font-size: 13px;
+  fill: var(--text);
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+.flode .ab { text-anchor: start; }
+.flode .liten { font-size: 11px; fill: rgba(239, 235, 228, 0.62); }
+.flode .stor { font-size: 24px; font-weight: 700; }
+.flode .n rect { fill: rgba(0, 0, 0, 0.22); stroke: rgba(239, 235, 228, 0.38); stroke-width: 1; }
+.flode .huvud rect { fill: var(--ljus); fill-opacity: 0.18; stroke: var(--ljus); stroke-width: 1.5; }
+.flode .huvud text { font-weight: 700; font-size: 15px; }
+.flode .varn rect { stroke: var(--ljus); stroke-dasharray: 4 3; }
+.flode .ram { fill: none; stroke: rgba(239, 235, 228, 0.3); stroke-dasharray: 5 4; }
+.flode .bak { fill: rgba(0, 0, 0, 0.14); stroke: rgba(239, 235, 228, 0.16); }
+.flode .fylld { fill: rgba(0, 0, 0, 0.2); stroke: rgba(239, 235, 228, 0.38); }
+.flode .rad { fill: rgba(239, 235, 228, 0.3); }
+.flode .kod { fill: rgba(0, 0, 0, 0.35); stroke: var(--ljus); }
+.flode .linje { fill: none; stroke: rgba(239, 235, 228, 0.4); stroke-width: 1.5; }
+.flode .flod { stroke: var(--ljus); stroke-width: 2; stroke-dasharray: 3 7; stroke-linecap: round; }
+.flode .stoppad { stroke-dasharray: 2 5; stroke: rgba(239, 235, 228, 0.3); }
+.flode .kryss { fill: none; stroke: #e08f7d; stroke-width: 2.5; stroke-linecap: round; }
+
+.js .flode .n,
+.js .flode .linje {
+  opacity: 0;
+  transform: translateY(8px);
+  transform-box: fill-box;
+  transition: opacity .5s ease, transform .7s cubic-bezier(.2, .8, .2, 1);
+}
+.js .flode .linje { transform: none; transition-delay: .35s; }
+.js .syns .flode .n,
+.js .syns .flode .linje { opacity: 1; transform: none; }
+.js .flode .d2 { transition-delay: .12s; }
+.js .flode .d3 { transition-delay: .24s; }
+.js .flode .d4 { transition-delay: .36s; }
+.js .flode .d5 { transition-delay: .48s; }
+.syns .flode .flod { animation: flyt 1.6s linear infinite; }
+@keyframes flyt { to { stroke-dashoffset: -20; } }
+
 /* Lagren lägger sig på varandra på stora skärmar */
-@media (min-width: 900px) and (min-height: 680px) {
+@media (min-width: 900px) and (min-height: 700px) {
   .skiva {
     position: sticky;
-    top: calc(28px + var(--i) * 14px);
+    top: calc(24px + var(--i) * 14px);
     margin-bottom: 14vh;
   }
   .skiva:last-child { margin-bottom: 0; }
@@ -255,6 +315,84 @@ h2 {
   to { transform: scale(0.93); filter: brightness(0.6); }
 }
 
+/* Lagermätaren längst ner */
+.matare { display: none; }
+.js .matare {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: calc(100vw - 32px);
+  padding: 9px 14px;
+  background: rgba(20, 20, 19, 0.9);
+  border: 1px solid var(--linje);
+  border-radius: 10px;
+  font-size: 14px;
+  box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.8);
+  transform: translate(-50%, 160%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .5s cubic-bezier(.2, .8, .2, 1), opacity .3s ease;
+}
+.js .matare.synlig { transform: translate(-50%, 0); opacity: 1; pointer-events: auto; }
+.matare ol { list-style: none; display: flex; align-items: flex-end; gap: 3px; margin: 0; padding: 0; }
+.matare a {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 22px;
+}
+.matare a::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  bottom: 4px;
+  height: 5px;
+  border-radius: 2px;
+  background: var(--ljus);
+  opacity: 0.35;
+  transition: height .35s cubic-bezier(.2, .8, .2, 1), opacity .25s;
+}
+.matare a:hover::before { opacity: 0.7; }
+.matare a[aria-current]::before { height: 14px; opacity: 1; }
+.matare a span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.matare-namn {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.matare-nr { color: var(--dampad); font-variant-numeric: tabular-nums; margin-right: 8px; }
+.matare-tips {
+  margin: 0;
+  padding-left: 12px;
+  border-left: 1px solid var(--linje);
+  color: var(--svag);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.matare kbd {
+  font-family: inherit;
+  font-size: 12px;
+  color: var(--dampad);
+  border: 1px solid var(--linje);
+  border-radius: 4px;
+  padding: 0 5px;
+}
+@media (hover: none), (max-width: 600px) { .matare-tips { display: none; } }
+
 /* Kunskaper */
 .kunskaper-sektion { padding: 120px 0 40px; }
 .kunskaper-sektion h2 { margin-bottom: 48px; }
@@ -263,10 +401,27 @@ h2 {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   border-top: 1px solid var(--linje);
 }
-.kunskaper div { padding: 22px 24px 22px 0; border-bottom: 1px solid var(--linje); }
+.kunskaper div { position: relative; padding: 26px 24px 22px 0; border-bottom: 1px solid var(--linje); }
+.kunskaper div::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 36px;
+  height: 3px;
+  background: var(--ljus);
+  transition: width .5s cubic-bezier(.2, .8, .2, 1);
+}
+.kunskaper div:hover::before { width: calc(100% - 24px); }
+.kunskaper div:nth-child(1) { --ljus: #7fa0d0; }
+.kunskaper div:nth-child(2) { --ljus: #d0ad72; }
+.kunskaper div:nth-child(3) { --ljus: #a892d4; }
+.kunskaper div:nth-child(4) { --ljus: #78c0bb; }
 @media (min-width: 900px) {
   .kunskaper div { border-bottom: 0; }
   .kunskaper div + div { border-left: 1px solid var(--linje); padding-left: 24px; }
+  .kunskaper div + div::before { left: 24px; }
+  .kunskaper div + div:hover::before { width: calc(100% - 48px); }
 }
 .kunskaper h3 { font-size: 22px; margin: 0 0 8px; letter-spacing: -0.02em; }
 .kunskaper p { margin: 0; color: var(--dampad); font-size: 16.5px; }
@@ -281,10 +436,26 @@ h2 {
   letter-spacing: -0.04em;
   line-height: 1.05;
   word-break: break-word;
+  text-shadow: 3px 3px 0 transparent, 6px 6px 0 transparent, 9px 9px 0 transparent;
+  transition: text-shadow .7s ease, background-size .35s cubic-bezier(.6, 0, .2, 1);
 }
 .kontakt .mejl.streck { background-size: 100% 3px; padding-bottom: 6px; }
-.kontakt .mejl.streck:hover { background-size: 0 3px; }
-.kontakt .ovrigt { margin-top: 36px; font-size: 17px; }
+.kontakt .mejl.streck:hover,
+.kontakt .mejl.streck:focus-visible {
+  background-size: 0 3px;
+  text-shadow: 3px 3px 0 var(--lager1), 6px 6px 0 var(--lager2), 9px 9px 0 var(--lager3);
+}
+.kontakt .ovrigt { display: flex; gap: 28px; flex-wrap: wrap; align-items: baseline; margin-top: 36px; font-size: 17px; color: var(--text); }
+.kopiera {
+  font: inherit;
+  color: var(--dampad);
+  background: none;
+  border: 0;
+  padding: 0 0 2px;
+  cursor: pointer;
+}
+.kopiera:hover { color: var(--text); }
+.kopiera.klar { color: #7fb092; }
 
 .sidfot {
   display: flex;
@@ -297,20 +468,49 @@ h2 {
   font-size: 15px;
 }
 
-/* Plattorna glider isär när sidan laddas */
+/* Rörelser, bara för den som inte har bett om mindre rörelse */
 @media (prefers-reduced-motion: no-preference) {
   .platta { animation: isar 1.3s cubic-bezier(.2, .8, .2, 1) .25s backwards; }
   .platta.aws  { animation-delay: .4s; }
   .platta.m365 { animation-delay: .55s; }
+  .intro h1 { animation: tona-lager 1.6s ease .4s backwards; }
+
+  @supports (animation-timeline: view()) {
+    .stapel {
+      animation: spricka linear both;
+      animation-timeline: --intro;
+      animation-range: exit-crossing 0% exit-crossing 75%;
+    }
+    h2 {
+      animation: stig linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 90%;
+    }
+  }
 }
 @keyframes isar {
   from { transform: translateZ(0); opacity: 0; }
   30%  { opacity: 1; }
-  to   { transform: translateZ(var(--z)); opacity: 1; }
+  to   { transform: translateZ(calc(var(--z) * var(--spred))); opacity: 1; }
+}
+/* Lagren under namnet tonar fram ett i taget, utan att flytta sig */
+@keyframes tona-lager {
+  0%   { text-shadow: 3px 3px 0 transparent, 6px 6px 0 transparent, 9px 9px 0 transparent; }
+  35%  { text-shadow: 3px 3px 0 var(--lager1), 6px 6px 0 transparent, 9px 9px 0 transparent; }
+  70%  { text-shadow: 3px 3px 0 var(--lager1), 6px 6px 0 var(--lager2), 9px 9px 0 transparent; }
+  100% { text-shadow: 3px 3px 0 var(--lager1), 6px 6px 0 var(--lager2), 9px 9px 0 var(--lager3); }
+}
+@keyframes spricka {
+  to { --spred: 2.1; --vrid: 38deg; }
+}
+@keyframes stig {
+  from { opacity: 0; transform: translateY(0.35em); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .skiva article { animation: none !important; }
-  .platta, .streck { transition: none; }
+  .platta, .streck, .matare, .kontakt .mejl { transition: none; }
+  .js .flode .n, .js .flode .linje { opacity: 1; transform: none; transition: none; }
+  .syns .flode .flod { animation: none; }
 }
