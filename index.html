@@ -3,108 +3,109 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#07090d">
   <title>Idris Altun</title>
   <meta name="description" content="Idris Altun – moln, infrastruktur och egna projekt inom Azure, AWS och Microsoft 365.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="typsnitt/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <link rel="alternate" hreflang="en" href="en/">
 </head>
 <body>
-<div class="sida">
 
-  <header class="topp">
-    <a class="namn" href="./">Idris Altun</a>
+<div class="topp-ram">
+  <header class="sida topp">
+    <a class="namn" href="./">idris<span>altun</span></a>
     <nav>
-      <a href="#projekt">Projekt</a>
-      <a href="#kunskaper">Kunskaper</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="en/" lang="en">English</a>
+      <a href="#projekt">projekt</a>
+      <a href="#kunskaper">kunskaper</a>
+      <a href="#kontakt">kontakt</a>
+      <a class="sprak" href="en/" lang="en">EN</a>
     </nav>
   </header>
+</div>
 
+<div class="sida">
   <main>
     <div class="intro">
-      <h1>Hej, jag heter Idris.</h1>
-      <p>Jag utbildar mig inom moln och infrastruktur och bygger egna verktyg vid sidan av. Det mesta handlar om Azure, AWS och Microsoft 365, och om att göra saker säkra från början.</p>
+      <div class="etikett">Moln · Infrastruktur · Säkerhet</div>
+      <h1>Hej, jag heter Idris. Jag bygger <span class="glans">säkra saker i molnet.</span></h1>
+      <p>Jag utbildar mig inom moln och infrastruktur och bygger egna verktyg vid sidan av. Det mesta handlar om <strong>Azure</strong>, <strong>AWS</strong> och <strong>Microsoft 365</strong>, och om att göra saker säkra från början.</p>
       <p>Här har jag samlat det jag har byggt. En del av koden är öppen, resten visar jag gärna om du hör av dig.</p>
       <div class="lankar">
-        <a class="knapp fylld" href="#projekt">Se projekten</a>
+        <a class="knapp fylld" href="#projekt">Se projekten <span class="pil">→</span></a>
         <a class="knapp" href="https://github.com/Idris1980">GitHub</a>
+      </div>
+      <div class="siffror">
+        <div><strong>7</strong><span>egna projekt</span></div>
+        <div><strong>4</strong><span>med öppen kod</span></div>
+        <div><strong>3</strong><span>moln: Azure, AWS, M365</span></div>
       </div>
     </div>
 
     <section id="projekt">
-      <h2>Projekt</h2>
-      <p class="under">Det jag har lagt mest tid på ligger först.</p>
+      <div class="avsnitt-huvud">
+        <span class="nr">01 — projekt</span>
+        <h2>Det jag har byggt</h2>
+        <p class="under">Det jag har lagt mest tid på ligger först.</p>
+      </div>
 
       <div class="kort-lista">
 
-        <article class="kort">
-          <div class="rubrikrad">
-            <h3>LookFirst</h3>
-            <span class="markor">Öppen kod</span>
-          </div>
+        <article class="kort stor">
+          <div class="kort-topp"><span>go · vscode · cli · github action</span><span class="markor">Öppen kod</span></div>
+          <h3>LookFirst</h3>
           <p class="kort-text">Visar vad AI-skriven kod gör innan du kör den.</p>
           <p>Många klistrar in kod från en AI utan att riktigt veta vad den skapar. LookFirst läser koden och visar i ordning vad som kommer att byggas, hur delarna hänger ihop och var säkerhetsluckorna finns, till exempel öppna portar eller nycklar i klartext. Varje råd länkar till Microsofts eller Amazons egna säkerhetsregler.</p>
           <p class="detalj">Finns som VS Code-tillägg, kommandorad, GitHub Action och webbsida. Läser Terraform, Bicep, ARM, CloudFormation, Docker Compose, Kubernetes och skript med az, aws och PowerShell. Releaserna är signerade.</p>
           <ul class="taggar"><li>Go</li><li>VS Code</li><li>Azure</li><li>AWS</li><li>GitHub Actions</li><li>Säkerhet</li></ul>
           <div class="fot">
-            <a href="https://github.com/Idris1980/lookfirst">Koden</a>
-            <a href="https://idris1980.github.io/lookfirst/">Prova på webben</a>
+            <a href="https://github.com/Idris1980/lookfirst">Koden →</a>
+            <a href="https://idris1980.github.io/lookfirst/">Prova på webben →</a>
           </div>
         </article>
 
         <article class="kort">
-          <div class="rubrikrad">
-            <h3>Boendeportalen</h3>
-            <span class="markor privat">Privat kod</span>
-          </div>
+          <div class="kort-topp"><span>python · azure</span><span class="markor privat">Privat kod</span></div>
+          <h3>Boendeportalen</h3>
           <p class="kort-text">En portal för hyresvärdar och bostadsrättsföreningar.</p>
           <p>De boende gör felanmälan, bokar tvättid, betalar avier och läser dokument. Personalen har en egen portal med ärenden, bostadskö, roller och behörigheter. Varje kund får en egen Azure-miljö med sin egen inloggning, sina färger och sin logga.</p>
           <p class="detalj">Byggd på Container Apps, Cosmos DB, Key Vault och Entra External ID. Har API och webhooks för andra system, revisionslogg och GDPR-export. Allt sätts upp med skript och ARM-mallar.</p>
-          <ul class="taggar"><li>Python</li><li>Azure Container Apps</li><li>Cosmos DB</li><li>Entra ID</li><li>ARM</li></ul>
+          <ul class="taggar"><li>Python</li><li>Container Apps</li><li>Cosmos DB</li><li>Entra ID</li><li>ARM</li></ul>
           <div class="fot"><span>Visas gärna på förfrågan</span></div>
         </article>
 
         <article class="kort">
-          <div class="rubrikrad">
-            <h3>Cleanroom</h3>
-            <span class="markor">Öppen kod</span>
-          </div>
+          <div class="kort-topp"><span>go · bicep · azure</span><span class="markor">Öppen kod</span></div>
+          <h3>Cleanroom</h3>
           <p class="kort-text">En tillfällig, privat databas i Azure på runt fem minuter.</p>
           <p>Ett kommando bygger en Azure SQL-databas som inte syns på internet alls. Utvecklaren kommer åt den genom en tunnel via Azure Relay med sin vanliga inloggning, utan lösenord eller nycklar. När jobbet är klart river ett annat kommando allt.</p>
           <ul class="taggar"><li>Go</li><li>Bicep</li><li>Azure SQL</li><li>Azure Relay</li><li>Privata nätverk</li></ul>
-          <div class="fot"><a href="https://github.com/Idris1980/cleanroom">Koden</a></div>
+          <div class="fot"><a href="https://github.com/Idris1980/cleanroom">Koden →</a></div>
         </article>
 
         <article class="kort">
-          <div class="rubrikrad">
-            <h3>Bäst före</h3>
-            <span class="markor">Öppen kod</span>
-          </div>
+          <div class="kort-topp"><span>python · graph</span><span class="markor">Öppen kod</span></div>
+          <h3>Bäst före</h3>
           <p class="kort-text">Visar vad i Microsoft-miljön som snart slutar fungera.</p>
           <p>Appnycklar och certifikat som går ut, appar som ingen äger längre och kopplingar i Logic Apps som hänger på en enda person. Verktyget behöver bara läsbehörighet. När jag körde det mot min egen tenant hittade det tre appar utan ägare.</p>
           <ul class="taggar"><li>Python</li><li>Microsoft Graph</li><li>Entra ID</li><li>Logic Apps</li></ul>
-          <div class="fot"><a href="https://github.com/Idris1980/bast-fore">Koden</a></div>
+          <div class="fot"><a href="https://github.com/Idris1980/bast-fore">Koden →</a></div>
         </article>
 
         <article class="kort">
-          <div class="rubrikrad">
-            <h3>Microsoft 365-labb</h3>
-            <span class="markor">Labbmiljö</span>
-          </div>
+          <div class="kort-topp"><span>entra · intune · purview</span><span class="markor labb">Labbmiljö</span></div>
+          <h3>Microsoft 365-labb</h3>
           <p class="kort-text">En egen tenant där jag övar på det som företag faktiskt använder.</p>
           <p>Lokalt AD synkas till Entra med Cloud Sync. Jag har satt upp Conditional Access, PIM, åtkomstpaket och flöden för nyanställda och de som slutar. Datorerna installeras med Autopilot och får BitLocker, LAPS och krav på godkänd enhet i Intune. I Purview har jag känslighetsetiketter med kryptering och DLP för personnummer.</p>
           <ul class="taggar"><li>Entra ID</li><li>Intune</li><li>Autopilot</li><li>SharePoint</li><li>Purview</li><li>PowerShell</li></ul>
         </article>
 
         <article class="kort">
-          <div class="rubrikrad">
-            <h3>Swapp</h3>
-            <span class="markor privat">Privat kod</span>
-          </div>
+          <div class="kort-topp"><span>kotlin · android</span><span class="markor privat">Privat kod</span></div>
+          <h3>Swapp</h3>
           <p class="kort-text">En Android-app för tiden i sociala medier.</p>
           <p>Appen räknar hur länge du har varit i sociala appar och visar vad samma tid hade räckt till, till exempel en promenad eller ett kapitel i en bok. Den har dagsmål, en mjuk pausruta och en widget. Appen saknar behörighet till internet helt, så ingenting kan lämna telefonen.</p>
           <ul class="taggar"><li>Kotlin</li><li>Jetpack Compose</li><li>Android</li><li>Integritet</li></ul>
@@ -112,64 +113,60 @@
         </article>
 
         <article class="kort">
-          <div class="rubrikrad">
-            <h3>CV-check</h3>
-            <span class="markor privat">Privat kod</span>
-          </div>
-          <p class="kort-text">Hjälper jobbsökare förbi AI-sållningen, på ärligt sätt.</p>
-          <p>Du lägger in ditt CV och klistrar in annonsen. Sidan visar hur ett sållningsverktyg troligen skulle bedöma dig och vad som saknas eller är otydligt. Allt körs lokalt i webbläsaren och ingenting skickas iväg. Den hittar aldrig på kunskaper åt dig.</p>
-          <ul class="taggar"><li>JavaScript</li><li>PDF och Word</li><li>Integritet</li></ul>
-          <div class="fot"><span>Visas gärna på förfrågan</span></div>
-        </article>
-
-        <article class="kort">
-          <div class="rubrikrad">
-            <h3>Markdown to Copyable PDF</h3>
-            <span class="markor">Öppen kod</span>
-          </div>
+          <div class="kort-topp"><span>javascript · vscode</span><span class="markor">Öppen kod</span></div>
+          <h3>Markdown to Copyable PDF</h3>
           <p class="kort-text">Ett VS Code-tillägg som gör PDF av Markdown.</p>
           <p>Jag behövde PDF:er där kommandona går att kopiera och klistra in utan att något går sönder. Tillägget delar långa kommandon på rätt sätt för PowerShell och bash, ritar Mermaid-diagram utan internet och kontrollerar efteråt att texten i PDF:en stämmer.</p>
           <ul class="taggar"><li>JavaScript</li><li>VS Code</li><li>Python</li></ul>
-          <div class="fot"><a href="https://github.com/Idris1980/copyable-pdf">Koden</a></div>
+          <div class="fot"><a href="https://github.com/Idris1980/copyable-pdf">Koden →</a></div>
         </article>
 
       </div>
     </section>
 
     <section id="kunskaper">
-      <h2>Kunskaper</h2>
-      <p class="under">Det här har jag använt på riktigt i projekten ovan.</p>
+      <div class="avsnitt-huvud">
+        <span class="nr">02 — kunskaper</span>
+        <h2>Verktygslådan</h2>
+        <p class="under">Det här har jag använt på riktigt i projekten ovan.</p>
+      </div>
       <div class="kunskaper">
         <div>
-          <h3>Azure</h3>
+          <h3>azure</h3>
           <p>Container Apps, Azure SQL, Cosmos DB, Key Vault, Relay, Logic Apps, Functions, privata nätverk, Bicep och ARM.</p>
         </div>
         <div>
-          <h3>AWS</h3>
+          <h3>aws</h3>
           <p>CloudFormation, VPC och säkerhetsgrupper, IAM och AWS CLI.</p>
         </div>
         <div>
-          <h3>Microsoft 365</h3>
+          <h3>microsoft-365</h3>
           <p>Entra ID, Conditional Access, PIM, Intune, Autopilot, SharePoint och Purview.</p>
         </div>
         <div>
-          <h3>Kod och automation</h3>
+          <h3>kod-och-automation</h3>
           <p>PowerShell, Python, Go, Terraform, GitHub Actions och git.</p>
         </div>
       </div>
     </section>
 
     <section id="kontakt">
-      <h2>Kontakt</h2>
-      <p class="under">Hör gärna av dig om du vill se mer av något projekt eller prata om ett jobb.</p>
-      <div class="lankar">
-        <a class="knapp fylld" href="mailto:kontakt@idrisaltun.com">kontakt@idrisaltun.com</a>
-        <a class="knapp" href="https://github.com/Idris1980">GitHub</a>
+      <div class="kontakt-ruta">
+        <span class="nr mono">03 — kontakt</span>
+        <h2>Vill du se mer eller prata jobb?</h2>
+        <p class="under">Hör gärna av dig om du vill se mer av något projekt, även de med privat kod.</p>
+        <div class="lankar">
+          <a class="knapp fylld" href="mailto:kontakt@idrisaltun.com">kontakt@idrisaltun.com <span class="pil">→</span></a>
+          <a class="knapp" href="https://github.com/Idris1980">GitHub</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="sidfot">Idris Altun</footer>
+  <footer class="sidfot">
+    <span>© 2026 Idris Altun</span>
+    <span>idrisaltun.com</span>
+  </footer>
 </div>
 </body>
 </html>
