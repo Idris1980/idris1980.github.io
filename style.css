@@ -15,9 +15,6 @@
   --svag: #6f6b64;
   --linje: rgba(239, 235, 228, 0.14);
   --typ: "Familjen Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --lager1: #6b5a38;
-  --lager2: #6b3d55;
-  --lager3: #34557a;
   color-scheme: dark;
 }
 
@@ -90,7 +87,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--text); outline-
   font-weight: 700;
   letter-spacing: -0.045em;
   margin: 0 0 40px;
-  text-shadow: 3px 3px 0 var(--lager1), 6px 6px 0 var(--lager2), 9px 9px 0 var(--lager3);
 }
 .intro h1 span { display: block; color: var(--dampad); }
 .intro .ingress {
@@ -436,14 +432,13 @@ h2 {
   letter-spacing: -0.04em;
   line-height: 1.05;
   word-break: break-word;
-  text-shadow: 3px 3px 0 transparent, 6px 6px 0 transparent, 9px 9px 0 transparent;
-  transition: text-shadow .7s ease, background-size .35s cubic-bezier(.6, 0, .2, 1);
+  transition: color .5s ease, background-size .45s cubic-bezier(.6, 0, .2, 1);
 }
 .kontakt .mejl.streck { background-size: 100% 3px; padding-bottom: 6px; }
 .kontakt .mejl.streck:hover,
 .kontakt .mejl.streck:focus-visible {
   background-size: 0 3px;
-  text-shadow: 3px 3px 0 var(--lager1), 6px 6px 0 var(--lager2), 9px 9px 0 var(--lager3);
+  color: #9fbbe0;
 }
 .kontakt .ovrigt { display: flex; gap: 28px; flex-wrap: wrap; align-items: baseline; margin-top: 36px; font-size: 17px; color: var(--text); }
 .kopiera {
@@ -473,7 +468,8 @@ h2 {
   .platta { animation: isar 1.3s cubic-bezier(.2, .8, .2, 1) .25s backwards; }
   .platta.aws  { animation-delay: .4s; }
   .platta.m365 { animation-delay: .55s; }
-  .intro h1 { animation: tona-lager 1.6s ease .4s backwards; }
+  .intro h1 { animation: fram 1s cubic-bezier(.2, .8, .2, 1) .15s backwards; }
+  .intro h1 span { animation: fram 1s cubic-bezier(.2, .8, .2, 1) .35s backwards; }
 
   @supports (animation-timeline: view()) {
     .stapel {
@@ -493,12 +489,9 @@ h2 {
   30%  { opacity: 1; }
   to   { transform: translateZ(calc(var(--z) * var(--spred))); opacity: 1; }
 }
-/* Lagren under namnet tonar fram ett i taget, utan att flytta sig */
-@keyframes tona-lager {
-  0%   { text-shadow: 3px 3px 0 transparent, 6px 6px 0 transparent, 9px 9px 0 transparent; }
-  35%  { text-shadow: 3px 3px 0 var(--lager1), 6px 6px 0 transparent, 9px 9px 0 transparent; }
-  70%  { text-shadow: 3px 3px 0 var(--lager1), 6px 6px 0 var(--lager2), 9px 9px 0 transparent; }
-  100% { text-shadow: 3px 3px 0 var(--lager1), 6px 6px 0 var(--lager2), 9px 9px 0 var(--lager3); }
+/* Namnet glider upp en gång när sidan laddas */
+@keyframes fram {
+  from { opacity: 0; transform: translateY(0.18em); }
 }
 @keyframes spricka {
   to { --spred: 2.1; --vrid: 38deg; }
