@@ -171,9 +171,8 @@ h2 {
 .s2 { --i: 1; --farg: #3a2431; }
 .s3 { --i: 2; --farg: #1f2c3f; }
 .s4 { --i: 3; --farg: #3a3122; }
-.s5 { --i: 4; --farg: #2a3036; }
-.s6 { --i: 5; --farg: #2e2540; }
-.s7 { --i: 6; --farg: #1f3434; }
+.s5 { --i: 4; --farg: #2e2540; }
+.s6 { --i: 5; --farg: #1f3434; }
 
 .skiva-topp {
   display: flex;
@@ -247,9 +246,9 @@ h2 {
     .skiva article {
       animation: tryck-undan linear both;
       animation-timeline: --lager;
-      animation-range: exit-crossing calc(var(--i) / 7 * 100%) exit-crossing calc((var(--i) + 1) / 7 * 100%);
+      animation-range: exit-crossing calc(var(--i) / 6 * 100%) exit-crossing calc((var(--i) + 1) / 6 * 100%);
     }
-    .s7 article { animation: none; }
+    .s6 article { animation: none; }
   }
 }
 @keyframes tryck-undan {
