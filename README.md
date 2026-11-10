@@ -5,7 +5,7 @@ Min personliga sida med projekten jag har byggt. Vanlig HTML och CSS, inget bygg
 - `index.html` – svenska
 - `en/index.html` – engelska
 - `style.css` – gemensam stil, mörk
-- `typsnitt/` – Space Grotesk och JetBrains Mono (SIL Open Font License, licenserna ligger bredvid)
+- `typsnitt/` – Familjen Grotesk (SIL Open Font License, licensen ligger bredvid)
 - `.nojekyll` – GitHub Pages ska visa filerna som de är
 
 Sidan ligger på GitHub Pages. Egen domän läggs i filen `CNAME`.
