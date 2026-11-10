@@ -1,0 +1,174 @@
+:root {
+  --bg: #f6f7f9;
+  --yta: #ffffff;
+  --text: #1b2430;
+  --dampad: #5a6573;
+  --linje: #dde2e8;
+  --accent: #1f6f8b;
+  --accent-svag: #e3f0f4;
+  --privat: #7a5c00;
+  --privat-svag: #fbf3dc;
+  --radie: 10px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11161c;
+    --yta: #19212a;
+    --text: #e6ebf0;
+    --dampad: #9aa6b2;
+    --linje: #2a3540;
+    --accent: #6cc0dc;
+    --accent-svag: #1a3440;
+    --privat: #e8c66a;
+    --privat-svag: #3a3018;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #11161c;
+  --yta: #19212a;
+  --text: #e6ebf0;
+  --dampad: #9aa6b2;
+  --linje: #2a3540;
+  --accent: #6cc0dc;
+  --accent-svag: #1a3440;
+  --privat: #e8c66a;
+  --privat-svag: #3a3018;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+
+.sida {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Sidhuvud */
+.topp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 20px 0;
+  font-size: 15px;
+}
+.topp .namn { font-weight: 700; color: var(--text); text-decoration: none; }
+.topp nav { display: flex; gap: 18px; flex-wrap: wrap; }
+.topp nav a { color: var(--dampad); text-decoration: none; }
+.topp nav a:hover { color: var(--text); }
+
+/* Inledning */
+.intro { padding: 48px 0 40px; border-bottom: 1px solid var(--linje); }
+.intro h1 {
+  font-size: clamp(32px, 6vw, 48px);
+  line-height: 1.1;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+.intro p { max-width: 640px; margin: 0 0 12px; color: var(--dampad); font-size: 19px; }
+.lankar { display: flex; gap: 12px; flex-wrap: wrap; }
+.intro .lankar { margin-top: 24px; }
+
+.knapp {
+  display: inline-block;
+  padding: 9px 18px;
+  border: 1px solid var(--linje);
+  border-radius: 999px;
+  background: var(--yta);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+}
+.knapp:hover { border-color: var(--accent); }
+.knapp.fylld { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+
+/* Avsnitt */
+section { padding: 48px 0; }
+section + section { border-top: 1px solid var(--linje); }
+h2 { font-size: 26px; margin: 0 0 8px; letter-spacing: -0.01em; }
+.under { color: var(--dampad); margin: 0 0 28px; max-width: 640px; }
+
+/* Projektkort */
+.kort-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+  gap: 16px;
+}
+.kort {
+  background: var(--yta);
+  border: 1px solid var(--linje);
+  border-radius: var(--radie);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+}
+.kort h3 { margin: 0; font-size: 20px; }
+.kort .rubrikrad { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.kort .kort-text { margin: 4px 0 12px; font-weight: 600; }
+.kort p { margin: 0 0 12px; }
+.kort .detalj { color: var(--dampad); font-size: 15.5px; }
+.kort .fot { margin-top: auto; padding-top: 8px; display: flex; gap: 16px; flex-wrap: wrap; font-size: 15px; }
+
+.markor {
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  background: var(--accent-svag);
+  color: var(--accent);
+}
+.markor.privat { background: var(--privat-svag); color: var(--privat); }
+
+.taggar { list-style: none; padding: 0; margin: 0 0 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.taggar li {
+  font-size: 13px;
+  padding: 2px 9px;
+  border: 1px solid var(--linje);
+  border-radius: 6px;
+  color: var(--dampad);
+}
+
+/* Kunskaper */
+.kunskaper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 16px;
+}
+.kunskaper div {
+  background: var(--yta);
+  border: 1px solid var(--linje);
+  border-radius: var(--radie);
+  padding: 18px 20px;
+}
+.kunskaper h3 { margin: 0 0 6px; font-size: 16px; }
+.kunskaper p { margin: 0; color: var(--dampad); font-size: 15.5px; }
+
+/* Sidfot */
+.sidfot {
+  padding: 32px 0 48px;
+  border-top: 1px solid var(--linje);
+  color: var(--dampad);
+  font-size: 14px;
+}

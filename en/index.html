@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Idris Altun</title>
+  <meta name="description" content="Idris Altun – cloud, infrastructure and my own projects on Azure, AWS and Microsoft 365.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="alternate" hreflang="sv" href="../">
+</head>
+<body>
+<div class="sida">
+
+  <header class="topp">
+    <a class="namn" href="./">Idris Altun</a>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href="../" lang="sv">Svenska</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="intro">
+      <h1>Hi, I'm Idris.</h1>
+      <p>I'm training in cloud and infrastructure, and I build my own tools on the side. Most of it involves Azure, AWS and Microsoft 365, and making things secure from the start.</p>
+      <p>This is where I keep what I've built. Some of the code is open, and I'm happy to show the rest if you get in touch.</p>
+      <div class="lankar">
+        <a class="knapp fylld" href="#projects">See the projects</a>
+        <a class="knapp" href="https://github.com/Idris1980">GitHub</a>
+      </div>
+    </div>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p class="under">The ones I've spent the most time on come first.</p>
+
+      <div class="kort-lista">
+
+        <article class="kort">
+          <div class="rubrikrad">
+            <h3>LookFirst</h3>
+            <span class="markor">Open source</span>
+          </div>
+          <p class="kort-text">Shows what AI-written code does before you run it.</p>
+          <p>A lot of people paste code from an AI without really knowing what it creates. LookFirst reads the code and shows, step by step, what will be built, how the parts connect and where the security gaps are, such as open ports or keys in plain text. Every piece of advice links to Microsoft's or Amazon's own security guidance.</p>
+          <p class="detalj">Available as a VS Code extension, a command-line tool, a GitHub Action and a web page. Reads Terraform, Bicep, ARM, CloudFormation, Docker Compose, Kubernetes and scripts using az, aws and PowerShell. Releases are signed.</p>
+          <ul class="taggar"><li>Go</li><li>VS Code</li><li>Azure</li><li>AWS</li><li>GitHub Actions</li><li>Security</li></ul>
+          <div class="fot">
+            <a href="https://github.com/Idris1980/lookfirst">Code</a>
+            <a href="https://idris1980.github.io/lookfirst/">Try it on the web</a>
+          </div>
+        </article>
+
+        <article class="kort">
+          <div class="rubrikrad">
+            <h3>Resident Portal</h3>
+            <span class="markor privat">Private code</span>
+          </div>
+          <p class="kort-text">A portal for landlords and housing cooperatives.</p>
+          <p>Residents report faults, book laundry times, pay invoices and read documents. Staff have their own portal with cases, a housing queue, roles and permissions. Every customer gets a separate Azure environment with its own sign-in, colours and logo.</p>
+          <p class="detalj">Built on Container Apps, Cosmos DB, Key Vault and Entra External ID. Has an API and webhooks for other systems, an audit log and GDPR export. Everything is deployed with scripts and ARM templates.</p>
+          <ul class="taggar"><li>Python</li><li>Azure Container Apps</li><li>Cosmos DB</li><li>Entra ID</li><li>ARM</li></ul>
+          <div class="fot"><span>Happy to show on request</span></div>
+        </article>
+
+        <article class="kort">
+          <div class="rubrikrad">
+            <h3>Cleanroom</h3>
+            <span class="markor">Open source</span>
+          </div>
+          <p class="kort-text">A temporary, private database in Azure in about five minutes.</p>
+          <p>One command builds an Azure SQL database that isn't reachable from the internet at all. The developer gets in through a tunnel over Azure Relay using their normal sign-in, with no passwords or keys. When the work is done, another command tears everything down.</p>
+          <ul class="taggar"><li>Go</li><li>Bicep</li><li>Azure SQL</li><li>Azure Relay</li><li>Private networking</li></ul>
+          <div class="fot"><a href="https://github.com/Idris1980/cleanroom">Code</a></div>
+        </article>
+
+        <article class="kort">
+          <div class="rubrikrad">
+            <h3>Bäst före</h3>
+            <span class="markor">Open source</span>
+          </div>
+          <p class="kort-text">Shows what in a Microsoft environment is about to stop working.</p>
+          <p>App secrets and certificates that are expiring, apps nobody owns anymore, and Logic Apps connections that depend on a single person. The tool only needs read access. When I ran it against my own tenant, it found three apps without an owner.</p>
+          <ul class="taggar"><li>Python</li><li>Microsoft Graph</li><li>Entra ID</li><li>Logic Apps</li></ul>
+          <div class="fot"><a href="https://github.com/Idris1980/bast-fore">Code</a></div>
+        </article>
+
+        <article class="kort">
+          <div class="rubrikrad">
+            <h3>Microsoft 365 lab</h3>
+            <span class="markor">Lab environment</span>
+          </div>
+          <p class="kort-text">My own tenant, where I practise what companies actually use.</p>
+          <p>An on-premises AD syncs to Entra with Cloud Sync. I've set up Conditional Access, PIM, access packages and joiner and leaver workflows. Computers are installed with Autopilot and get BitLocker, LAPS and compliance requirements in Intune. In Purview I have sensitivity labels with encryption and DLP for Swedish personal identity numbers.</p>
+          <ul class="taggar"><li>Entra ID</li><li>Intune</li><li>Autopilot</li><li>SharePoint</li><li>Purview</li><li>PowerShell</li></ul>
+        </article>
+
+        <article class="kort">
+          <div class="rubrikrad">
+            <h3>Swapp</h3>
+            <span class="markor privat">Private code</span>
+          </div>
+          <p class="kort-text">An Android app about time spent on social media.</p>
+          <p>The app counts how long you've spent in social apps and shows what the same time could have been used for, like a walk or a chapter of a book. It has daily goals, a gentle pause screen and a widget. The app has no internet permission at all, so nothing can leave the phone.</p>
+          <ul class="taggar"><li>Kotlin</li><li>Jetpack Compose</li><li>Android</li><li>Privacy</li></ul>
+          <div class="fot"><span>Happy to show on request</span></div>
+        </article>
+
+        <article class="kort">
+          <div class="rubrikrad">
+            <h3>CV-check</h3>
+            <span class="markor privat">Private code</span>
+          </div>
+          <p class="kort-text">Helps job seekers get past AI screening, honestly.</p>
+          <p>You add your CV and paste in the job ad. The page shows how a screening tool would probably rate you and what is missing or unclear. Everything runs locally in the browser and nothing is sent anywhere. It never invents skills for you.</p>
+          <ul class="taggar"><li>JavaScript</li><li>PDF and Word</li><li>Privacy</li></ul>
+          <div class="fot"><span>Happy to show on request</span></div>
+        </article>
+
+        <article class="kort">
+          <div class="rubrikrad">
+            <h3>Markdown to Copyable PDF</h3>
+            <span class="markor">Open source</span>
+          </div>
+          <p class="kort-text">A VS Code extension that turns Markdown into PDF.</p>
+          <p>I needed PDFs where commands can be copied and pasted without breaking. The extension splits long commands correctly for PowerShell and bash, draws Mermaid diagrams offline and checks afterwards that the text in the PDF is right.</p>
+          <ul class="taggar"><li>JavaScript</li><li>VS Code</li><li>Python</li></ul>
+          <div class="fot"><a href="https://github.com/Idris1980/copyable-pdf">Code</a></div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p class="under">Things I've actually used in the projects above.</p>
+      <div class="kunskaper">
+        <div>
+          <h3>Azure</h3>
+          <p>Container Apps, Azure SQL, Cosmos DB, Key Vault, Relay, Logic Apps, Functions, private networking, Bicep and ARM.</p>
+        </div>
+        <div>
+          <h3>AWS</h3>
+          <p>CloudFormation, VPC and security groups, IAM and the AWS CLI.</p>
+        </div>
+        <div>
+          <h3>Microsoft 365</h3>
+          <p>Entra ID, Conditional Access, PIM, Intune, Autopilot, SharePoint and Purview.</p>
+        </div>
+        <div>
+          <h3>Code and automation</h3>
+          <p>PowerShell, Python, Go, Terraform, GitHub Actions and git.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="under">Get in touch if you'd like to see more of a project or talk about a job.</p>
+      <div class="lankar">
+        <a class="knapp fylld" href="https://github.com/Idris1980">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sidfot">Idris Altun</footer>
+</div>
+</body>
+</html>
