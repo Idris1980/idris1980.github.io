@@ -507,3 +507,23 @@ h2 {
   .js .flode .n, .js .flode .linje { opacity: 1; transform: none; transition: none; }
   .syns .flode .flod { animation: none; }
 }
+
+/* Textsidor, till exempel integritetspolicyn för Swapp */
+.dokument { max-width: 720px; padding: 32px 0 80px; }
+.dokument h1 { font-size: clamp(34px, 6vw, 52px); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 16px; }
+.dokument h2 { font-size: 24px; margin: 44px 0 12px; animation: none; }
+.dokument p, .dokument li { color: rgba(239, 235, 228, 0.88); }
+.dokument p { margin: 0 0 16px; }
+.dokument ul { margin: 0 0 16px; padding-left: 22px; }
+.dokument li { margin-bottom: 8px; }
+.dokument strong { color: var(--text); }
+.dokument table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 16px; }
+.dokument th, .dokument td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--linje); }
+.dokument th { color: var(--dampad); font-weight: 600; }
+@media (max-width: 560px) {
+  .dokument table, .dokument tbody, .dokument tr, .dokument td { display: block; }
+  .dokument thead { display: none; }
+  .dokument tr { border-bottom: 1px solid var(--linje); padding: 10px 0; }
+  .dokument td { border: 0; padding: 2px 0; }
+  .dokument td:first-child { font-weight: 600; color: var(--text); }
+}
