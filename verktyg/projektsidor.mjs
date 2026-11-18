@@ -210,6 +210,7 @@ const bilder = [
     { fil: "cleanroom-down.webp", b: 772, h: 99, sv: "cleanroom down tar bort allt igen, och status visar att inget ligger kvar och kostar pengar.", en: "cleanroom down removes everything again, and status shows that nothing is left costing money." },
   ] },
   { bilder: [
+    { fil: "bast-fore-riktig.webp", b: 838, h: 350, sv: "En riktig körning mot min egen tenant: certifikatet för Entra Connect Sync går ut om 57 dagar. App-id:na är suddade.", en: "A real run against my own tenant: the Entra Connect Sync certificate expires in 57 days. The app IDs are blurred." },
     { fil: "bast-fore-appar.webp", b: 960, h: 600, sv: "Rapporten delar in apparna efter hur bråttom det är. Här från demoläget, med en påhittad tenant.", en: "The report groups the apps by urgency. Shown here from demo mode, with a made-up tenant." },
     { fil: "bast-fore-kopplingar.webp", b: 960, h: 700, sv: "Kopplingar i Logic Apps som hänger på en person, eller på ett konto som redan är borta.", en: "Logic Apps connections that depend on one person, or on an account that's already gone." },
   ] },
