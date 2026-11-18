@@ -99,13 +99,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--text); outline-
 .intro .vidare { font-size: 18px; color: var(--dampad); margin: 0; }
 .intro .vidare a { color: var(--text); }
 
-/* Det senaste som hänt */
-.senast { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--linje); max-width: 560px; }
-.senast-rubrik { margin: 0 0 10px; font-size: 14px; color: var(--svag); }
-.senast ul { list-style: none; margin: 0; padding: 0; }
-.senast li { display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 4px 0; font-size: 16px; color: var(--dampad); }
-.senast time { color: var(--text); font-variant-numeric: tabular-nums; }
-.senast a { color: var(--text); }
 
 /* Stapeln med tre plattor */
 .stapel-ram {
@@ -604,7 +597,14 @@ h2 {
 .bilder { display: grid; gap: 24px; }
 .bilder figure { margin: 0; }
 .bilder img, .bilder video { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--linje); }
-.bilder figcaption { margin-top: 10px; font-size: 15px; color: var(--dampad); }
+.bilder figcaption { margin-top: 10px; font-size: 15px; color: var(--dampad); max-width: 720px; }
+.bilder { gap: 40px; }
+.bilder.telefon { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; max-width: 900px; }
+.bilder.telefon img { border-radius: 22px; }
+@media (max-width: 600px) {
+  .bilder.telefon { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 70%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .bilder.telefon figure { scroll-snap-align: start; }
+}
 
 .chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
 .chips li { border: 1px solid var(--linje); border-radius: 8px; padding: 6px 12px; font-size: 16px; }

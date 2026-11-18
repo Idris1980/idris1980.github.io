@@ -189,9 +189,29 @@ const text = [
   },
 ];
 
-// Bilder per projekt läggs här när de finns, till exempel:
-// bilder: [{ fil: "bilder/lookfirst-1.png", sv: "Bildtext", en: "Caption" }]
-const bilder = [[], [], [], [], [], []];
+// Bilder per projekt, i samma ordning som projekten. Filerna ligger i mappen bilder/.
+// telefon: true ställer bilderna bredvid varandra, för skärmdumpar från en mobil.
+const bilder = [
+  { bilder: [
+    { fil: "lookfirst-bild.webp", b: 1200, h: 700, sv: "Rapporten börjar med en bild av vad koden skulle bygga. Här öppnar en CloudFormation-mall en webbserver mot hela internet.", en: "The report starts with a picture of what the code would build. Here a CloudFormation template opens a web server to the whole internet." },
+    { fil: "lookfirst-steg.webp", b: 1200, h: 580, sv: "Steg för steg: varje skript i den ordning det skulle köras, med riskerna under varje steg.", en: "Step by step: every script in the order it would run, with the risks under each step." },
+    { fil: "lookfirst-kort.webp", b: 1200, h: 640, sv: "Klickar man på en ruta visas raden i koden, riskerna och hur man rättar dem.", en: "Clicking a box shows the line of code, the risks and how to fix them." },
+  ] },
+  { bilder: [
+    { fil: "boendeportalen-boende.webp", b: 1600, h: 1025, sv: "De boendes startsida hos demokunden Hellas Bostäder. Alla namn och uppgifter är påhittade.", en: "The residents' home page for the demo customer Hellas Bostäder. All names and details are made up." },
+    { fil: "boendeportalen-personal.webp", b: 1600, h: 1025, sv: "Personalens översikt med uthyrning, försenade avier och det som väntar.", en: "The staff overview with lettings, late invoices and what's waiting." },
+  ] },
+  { bilder: [] },
+  { bilder: [] },
+  { telefon: true, bilder: [
+    { fil: "swapp-min-tid.webp", b: 600, h: 1175, sv: "Dagens tid mot dagsmålet, och vad den hade räckt till.", en: "Today's time against the daily goal, and what it could have been." },
+    { fil: "swapp-hellre.webp", b: 600, h: 1175, sv: "Saker man hellre vill göra, med hur lång tid de tar.", en: "Things you'd rather do, with how long they take." },
+    { fil: "swapp-paus.webp", b: 600, h: 1175, sv: "Pausrutan föreslår något annat att göra.", en: "The pause screen suggests something else to do." },
+  ] },
+  { bilder: [
+    { fil: "copyable-pdf-exempel.webp", b: 1190, h: 800, sv: "En PDF från tillägget. De långa kommandona är delade med ` för PowerShell och \\ för bash, och diagrammet är ritat utan internet.", en: "A PDF from the extension. The long commands are split with ` for PowerShell and \\ for bash, and the diagram is drawn offline." },
+  ] },
+];
 
 const sprak = {
   sv: {
@@ -240,12 +260,12 @@ const sida = (k, lista, andra, i) => {
   const upp = k.lang === "sv" ? "../../" : "../../../";
   const andraHref = k.lang === "sv" ? `../../en/projects/${andra[i].id}/` : `../../../projekt/${andra[i].id}/`;
   const startHref = k.lang === "sv" ? "../../" : "../../";
-  const bildHtml = bilder[i].length
+  const bildHtml = bilder[i].bilder.length
     ? `
     <section class="projekt-del">
       <h2 class="etikett">${k.bildRubrik}</h2>
-      <div class="bilder">
-${bilder[i].map((b) => `        <figure><img src="${upp}${b.fil}" alt="${b[k.lang]}" loading="lazy"><figcaption>${b[k.lang]}</figcaption></figure>`).join("\n")}
+      <div class="bilder${bilder[i].telefon ? " telefon" : ""}">
+${bilder[i].bilder.map((b) => `        <figure><img src="${upp}bilder/${b.fil}" width="${b.b}" height="${b.h}" alt="${b[k.lang]}" loading="lazy" decoding="async"><figcaption>${b[k.lang]}</figcaption></figure>`).join("\n")}
       </div>
     </section>
 `
@@ -296,14 +316,14 @@ ${bilder[i].map((b) => `        <figure><img src="${upp}${b.fil}" alt="${b[k.lan
 ${t.varfor.map((s) => `        <p>${s}</p>`).join("\n")}
 ${t.extra ? `        ${t.extra}\n` : ""}      </div>
     </section>
-
+${bildHtml}
     <section class="projekt-del">
       <h2 class="etikett">${k.hur}</h2>
       <ol class="punkter">
 ${t.hur.map((s) => `        <li>${s}</li>`).join("\n")}
       </ol>
     </section>
-${bildHtml}
+
     <section class="projekt-del">
       <h2 class="etikett">${k.byggd}</h2>
       <ul class="chips">
