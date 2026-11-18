@@ -600,7 +600,8 @@ h2 {
 .bilder figcaption { margin-top: 10px; font-size: 15px; color: var(--dampad); max-width: 720px; }
 .bilder { gap: 40px; }
 .bilder.telefon { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; max-width: 900px; }
-.bilder.telefon img { border-radius: 22px; }
+.bilder img { width: auto; max-width: 100%; }
+.bilder.telefon img { width: 100%; border-radius: 22px; }
 @media (max-width: 600px) {
   .bilder.telefon { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 70%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .bilder.telefon figure { scroll-snap-align: start; }

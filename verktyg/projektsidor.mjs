@@ -201,7 +201,14 @@ const bilder = [
     { fil: "boendeportalen-boende.webp", b: 1600, h: 1025, sv: "De boendes startsida hos demokunden Hellas Bostäder. Alla namn och uppgifter är påhittade.", en: "The residents' home page for the demo customer Hellas Bostäder. All names and details are made up." },
     { fil: "boendeportalen-personal.webp", b: 1600, h: 1025, sv: "Personalens översikt med uthyrning, försenade avier och det som väntar.", en: "The staff overview with lettings, late invoices and what's waiting." },
   ] },
-  { bilder: [] },
+  { bilder: [
+    { fil: "cleanroom-up.webp", b: 543, h: 272, sv: "cleanroom up bygger hela miljön i Azure. Den här gången tog det 5 minuter och 12 sekunder.", en: "cleanroom up builds the whole environment in Azure. This time it took 5 minutes and 12 seconds." },
+    { fil: "cleanroom-resurser.webp", b: 915, h: 567, sv: "Det som skapas: databas, privat nätverk, private endpoint, Relay och en liten container som håller tunneln.", en: "What gets created: a database, a private network, a private endpoint, Relay and a small container that holds the tunnel." },
+    { fil: "cleanroom-stangd.webp", b: 934, h: 357, sv: "Beviset i Azure-portalen: databasservern är helt stängd för internet.", en: "The proof in the Azure portal: the database server is completely closed to the internet." },
+    { fil: "cleanroom-connect.webp", b: 940, h: 152, sv: "cleanroom connect öppnar tunneln från datorn.", en: "cleanroom connect opens the tunnel from the computer." },
+    { fil: "cleanroom-sql.webp", b: 915, h: 209, sv: "Genom tunneln svarar databasen, fast den inte går att nå från internet.", en: "Through the tunnel the database answers, even though it can't be reached from the internet." },
+    { fil: "cleanroom-down.webp", b: 772, h: 99, sv: "cleanroom down tar bort allt igen, och status visar att inget ligger kvar och kostar pengar.", en: "cleanroom down removes everything again, and status shows that nothing is left costing money." },
+  ] },
   { bilder: [] },
   { telefon: true, bilder: [
     { fil: "swapp-min-tid.webp", b: 600, h: 1175, sv: "Dagens tid mot dagsmålet, och vad den hade räckt till.", en: "Today's time against the daily goal, and what it could have been." },
