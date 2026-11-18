@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#141413">
+  <title>Resident Portal – Idris Altun</title>
+  <meta name="description" content="A portal for landlords and housing cooperatives.">
+  <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../../typsnitt/familjen-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../style.css">
+  <link rel="alternate" hreflang="sv" href="../../../projekt/boendeportalen/">
+  <script src="../../../sida.js" defer></script>
+</head>
+<body>
+<div class="sida">
+
+  <header class="topp">
+    <a class="namn" href="../../">Idris Altun</a>
+    <nav>
+      <a href="../../#resident-portal">All projects</a>
+      <a href="../../#contact">Contact</a>
+      <a href="../../../projekt/boendeportalen/" lang="sv">Svenska</a>
+    </nav>
+  </header>
+
+  <main class="projektsida s2">
+    <article class="projekt-kort">
+      <div class="skiva-topp"><a class="tillbaka streck" href="../../#resident-portal">← All projects</a><span class="status">Private code</span></div>
+      <p class="nummer">02 / 06</p>
+      <h1>Resident Portal</h1>
+      <p class="rubrik-text">A portal for landlords and housing cooperatives.</p>
+      <p class="vagar"><span>Happy to show on request</span></p>
+    </article>
+
+    <section class="projekt-del projekt-varfor">
+      <div class="projekt-bild">
+        <svg class="flode" viewBox="0 0 420 200" role="img" aria-label="Residents and staff use the portal. Every customer has a separate Azure environment with its own portal, database and keys.">
+              <rect class="bak" x="176" y="22" width="236" height="150" rx="12"/>
+              <rect class="bak" x="168" y="31" width="236" height="150" rx="12"/>
+              <path class="linje flod" d="M110 58 C 145 58 145 133 176 133"/>
+              <path class="linje flod" d="M110 158 C 145 158 145 133 176 133"/>
+              <g class="n d2"><rect class="fylld" x="160" y="40" width="236" height="150" rx="12"/><text class="ab liten" x="176" y="62">Customer A, own Azure environment</text><text class="ab liten" x="176" y="172">Own sign-in, colours and logo</text></g>
+              <path class="linje" d="M240 133 H256 M326 133 H336"/>
+              <g class="n huvud d3"><rect x="176" y="116" width="64" height="34" rx="7"/><text x="208" y="133">Portal</text></g>
+              <g class="n d4"><rect x="256" y="116" width="70" height="34" rx="7"/><text x="291" y="133">Database</text></g>
+              <g class="n d5"><rect x="336" y="116" width="54" height="34" rx="7"/><text x="363" y="133">Keys</text></g>
+              <g class="n d1"><rect x="4" y="40" width="106" height="36" rx="8"/><text x="57" y="58">Residents</text></g>
+              <g class="n d1"><rect x="4" y="140" width="106" height="36" rx="8"/><text x="57" y="158">Staff</text></g>
+            </svg>
+      </div>
+      <div>
+        <h2 class="etikett">Why</h2>
+        <p>Landlords and housing cooperatives need one place where residents can handle their errands and staff can keep track of them.</p>
+        <p>The portal is built so that every customer gets a completely separate environment. No customer shares a database or sign-in with anyone else.</p>
+      </div>
+    </section>
+
+    <section class="projekt-del">
+      <h2 class="etikett">How it works</h2>
+      <ol class="punkter">
+        <li><strong>For residents.</strong> Fault reports, laundry booking, invoices and documents.</li>
+        <li><strong>For staff.</strong> Cases, a housing queue, roles and permissions.</li>
+        <li><strong>One environment per customer.</strong> A separate Azure environment with its own sign-in through Entra External ID, its own colours and its own logo.</li>
+        <li><strong>Secrets in Key Vault.</strong> Keys and passwords are kept in Azure Key Vault.</li>
+        <li><strong>Connects to other systems.</strong> An API and webhooks.</li>
+        <li><strong>Traceable.</strong> An audit log and GDPR export, and everything is deployed with scripts and ARM templates.</li>
+      </ol>
+    </section>
+
+    <section class="projekt-del">
+      <h2 class="etikett">Built with</h2>
+      <ul class="chips">
+        <li>Python</li>
+        <li>Container Apps</li>
+        <li>Cosmos DB</li>
+        <li>Key Vault</li>
+        <li>Entra External ID</li>
+      </ul>
+    </section>
+
+    <nav class="nasta s3" aria-label="Next project">
+      <a href="../cleanroom/"><span>Next project</span><strong>Cleanroom →</strong></a>
+    </nav>
+  </main>
+
+  <footer class="sidfot">
+    <span>Idris Altun</span>
+    <span>idrisaltun.com</span>
+  </footer>
+</div>
+</body>
+</html>

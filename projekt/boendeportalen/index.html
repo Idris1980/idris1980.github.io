@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#141413">
+  <title>Boendeportalen – Idris Altun</title>
+  <meta name="description" content="En portal för hyresvärdar och bostadsrättsföreningar.">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../typsnitt/familjen-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="alternate" hreflang="en" href="../../en/projects/resident-portal/">
+  <script src="../../sida.js" defer></script>
+</head>
+<body>
+<div class="sida">
+
+  <header class="topp">
+    <a class="namn" href="../../">Idris Altun</a>
+    <nav>
+      <a href="../../#boendeportalen">Alla projekt</a>
+      <a href="../../#kontakt">Kontakt</a>
+      <a href="../../en/projects/resident-portal/" lang="en">English</a>
+    </nav>
+  </header>
+
+  <main class="projektsida s2">
+    <article class="projekt-kort">
+      <div class="skiva-topp"><a class="tillbaka streck" href="../../#boendeportalen">← Alla projekt</a><span class="status">Privat kod</span></div>
+      <p class="nummer">02 / 06</p>
+      <h1>Boendeportalen</h1>
+      <p class="rubrik-text">En portal för hyresvärdar och bostadsrättsföreningar.</p>
+      <p class="vagar"><span>Visas gärna på förfrågan</span></p>
+    </article>
+
+    <section class="projekt-del projekt-varfor">
+      <div class="projekt-bild">
+        <svg class="flode" viewBox="0 0 420 200" role="img" aria-label="Boende och personal använder portalen. Varje kund har en egen Azure-miljö med portal, databas och nycklar.">
+              <rect class="bak" x="176" y="22" width="236" height="150" rx="12"/>
+              <rect class="bak" x="168" y="31" width="236" height="150" rx="12"/>
+              <path class="linje flod" d="M110 58 C 145 58 145 133 176 133"/>
+              <path class="linje flod" d="M110 158 C 145 158 145 133 176 133"/>
+              <g class="n d2"><rect class="fylld" x="160" y="40" width="236" height="150" rx="12"/><text class="ab liten" x="176" y="62">Kund A, egen Azure-miljö</text><text class="ab liten" x="176" y="172">Egen inloggning, färger och logga</text></g>
+              <path class="linje" d="M240 133 H256 M326 133 H336"/>
+              <g class="n huvud d3"><rect x="176" y="116" width="64" height="34" rx="7"/><text x="208" y="133">Portal</text></g>
+              <g class="n d4"><rect x="256" y="116" width="70" height="34" rx="7"/><text x="291" y="133">Databas</text></g>
+              <g class="n d5"><rect x="336" y="116" width="54" height="34" rx="7"/><text x="363" y="133">Nycklar</text></g>
+              <g class="n d1"><rect x="4" y="40" width="106" height="36" rx="8"/><text x="57" y="58">Boende</text></g>
+              <g class="n d1"><rect x="4" y="140" width="106" height="36" rx="8"/><text x="57" y="158">Personal</text></g>
+            </svg>
+      </div>
+      <div>
+        <h2 class="etikett">Varför</h2>
+        <p>Hyresvärdar och bostadsrättsföreningar behöver en plats där de boende kan sköta sina ärenden och där personalen kan hålla ordning på dem.</p>
+        <p>Portalen är byggd så att varje kund får en helt egen miljö. Ingen kund delar databas eller inloggning med någon annan.</p>
+      </div>
+    </section>
+
+    <section class="projekt-del">
+      <h2 class="etikett">Så fungerar den</h2>
+      <ol class="punkter">
+        <li><strong>För de boende.</strong> Felanmälan, bokning av tvättid, avier och dokument.</li>
+        <li><strong>För personalen.</strong> Ärenden, bostadskö, roller och behörigheter.</li>
+        <li><strong>En miljö per kund.</strong> Egen Azure-miljö med egen inloggning via Entra External ID, egna färger och egen logga.</li>
+        <li><strong>Hemligheter i Key Vault.</strong> Nycklar och lösenord förvaras i Azure Key Vault.</li>
+        <li><strong>Kopplas till andra system.</strong> API och webhooks.</li>
+        <li><strong>Spårbart.</strong> Revisionslogg och GDPR-export, och allt sätts upp med skript och ARM-mallar.</li>
+      </ol>
+    </section>
+
+    <section class="projekt-del">
+      <h2 class="etikett">Byggd med</h2>
+      <ul class="chips">
+        <li>Python</li>
+        <li>Container Apps</li>
+        <li>Cosmos DB</li>
+        <li>Key Vault</li>
+        <li>Entra External ID</li>
+      </ul>
+    </section>
+
+    <nav class="nasta s3" aria-label="Nästa projekt">
+      <a href="../cleanroom/"><span>Nästa projekt</span><strong>Cleanroom →</strong></a>
+    </nav>
+  </main>
+
+  <footer class="sidfot">
+    <span>Idris Altun</span>
+    <span>idrisaltun.com</span>
+  </footer>
+</div>
+</body>
+</html>

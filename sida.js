@@ -2,6 +2,59 @@
   document.documentElement.classList.add('js');
   const lugn = matchMedia('(prefers-reduced-motion: reduce)');
 
+  const lager = document.querySelector('.lager');
+  const skivor = lager ? [...lager.querySelectorAll(':scope > .skiva')] : [];
+  const svepbar = () => lager && getComputedStyle(lager).overflowX === 'auto';
+
+  // Hoppa till ett projekt, både när korten ligger i en hög och när de sveps
+  const hoppa = (i) => {
+    const s = skivor[i];
+    if (!s) return;
+    const satt = lugn.matches ? 'auto' : 'smooth';
+    if (svepbar()) {
+      const vanster = lager.scrollLeft + s.getBoundingClientRect().left - lager.getBoundingClientRect().left
+        - parseFloat(getComputedStyle(lager).paddingLeft);
+      lager.scrollTo({ left: vanster, behavior: satt });
+      const topp = lager.getBoundingClientRect().top;
+      if (topp < 0 || topp > innerHeight * 0.4) {
+        scrollTo({ top: scrollY + topp - 90, behavior: satt });
+      }
+      return;
+    }
+    // Var skivan ligger i flödet, oavsett om den just nu sitter fast
+    let y = lager.getBoundingClientRect().top + scrollY;
+    for (let j = 0; j < i; j++) {
+      y += skivor[j].offsetHeight + parseFloat(getComputedStyle(skivor[j]).marginBottom);
+    }
+    const stil = getComputedStyle(s);
+    scrollTo({ top: y - (stil.position === 'sticky' ? parseFloat(stil.top) : 20), behavior: satt });
+  };
+  const index = (id) => skivor.findIndex((s) => s.id === id);
+  const namn = (id) => {
+    const s = document.getElementById(id);
+    return s ? s.querySelector('h3').textContent : id;
+  };
+
+  // Gör en lista med länkar till projekten, till exempel "LookFirst, Cleanroom och Swapp"
+  const lankLista = (ids, och) => {
+    const frag = document.createDocumentFragment();
+    ids.forEach((id, n) => {
+      if (n > 0) frag.append(n === ids.length - 1 ? ` ${och} ` : ', ');
+      const a = document.createElement('a');
+      a.className = 'streck';
+      a.href = '#' + id;
+      a.textContent = namn(id);
+      a.addEventListener('click', (e) => {
+        const i = index(id);
+        if (i < 0) return;
+        e.preventDefault();
+        hoppa(i);
+      });
+      frag.append(a);
+    });
+    return frag;
+  };
+
   // Stapeln följer pekaren
   const intro = document.querySelector('.intro');
   const stapel = document.querySelector('.stapel');
@@ -26,8 +79,46 @@
     }, { passive: true });
   }
 
+  // Klicka på en platta för att se projekten i den
+  const info = document.querySelector('.stapel-info');
+  if (stapel && info) {
+    const plattor = [...stapel.querySelectorAll('.platta')];
+    const och = document.documentElement.lang === 'sv' ? 'och' : 'and';
+    plattor.forEach((p) => p.addEventListener('click', () => {
+      const pa = p.getAttribute('aria-pressed') !== 'true';
+      plattor.forEach((q) => q.setAttribute('aria-pressed', String(q === p && pa)));
+      stapel.classList.toggle('vald', pa);
+      info.textContent = '';
+      if (!pa) {
+        info.textContent = info.dataset.tips;
+        return;
+      }
+      const rubrik = document.createElement('strong');
+      rubrik.textContent = p.textContent + ': ';
+      info.append(rubrik, lankLista(p.dataset.p.split(' '), och));
+    }));
+  }
+
+  // Tekniker som pekar på projekten
+  const bevis = document.querySelector('.bevis');
+  if (bevis) {
+    const ord = [...document.querySelectorAll('.ord')];
+    const visa = (o) => {
+      ord.forEach((x) => x.classList.toggle('aktiv', x === o));
+      bevis.textContent = '';
+      const rubrik = document.createElement('strong');
+      rubrik.textContent = o.textContent;
+      bevis.append(rubrik, ` ${bevis.dataset.finns} `, lankLista(o.dataset.p.split(' '), bevis.dataset.och), '.');
+    };
+    ord.forEach((o) => {
+      o.addEventListener('mouseenter', () => visa(o));
+      o.addEventListener('focus', () => visa(o));
+      o.addEventListener('click', () => visa(o));
+    });
+  }
+
   // Bilderna i projekten ritas fram när de syns
-  const artiklar = document.querySelectorAll('.skiva article');
+  const ritas = document.querySelectorAll('.skiva article, .projekt-bild');
   if ('IntersectionObserver' in window) {
     const iakttagare = new IntersectionObserver((poster) => {
       for (const post of poster) {
@@ -37,14 +128,12 @@
         }
       }
     }, { threshold: 0.3 });
-    artiklar.forEach((a) => iakttagare.observe(a));
+    ritas.forEach((a) => iakttagare.observe(a));
   } else {
-    artiklar.forEach((a) => a.classList.add('syns'));
+    ritas.forEach((a) => a.classList.add('syns'));
   }
 
   // Lagermätaren och J/K
-  const lager = document.querySelector('.lager');
-  const skivor = lager ? [...lager.querySelectorAll(':scope > .skiva')] : [];
   const matare = document.querySelector('.matare');
   if (lager && skivor.length && matare) {
     const lankar = [...matare.querySelectorAll('a')];
@@ -57,7 +146,16 @@
       const r = lager.getBoundingClientRect();
       matare.classList.toggle('synlig', r.top < h * 0.6 && r.bottom > h * 0.45);
       let i = 0;
-      skivor.forEach((s, j) => { if (s.getBoundingClientRect().top <= h * 0.5) i = j; });
+      if (svepbar()) {
+        const kant = r.left + parseFloat(getComputedStyle(lager).paddingLeft);
+        let basta = Infinity;
+        skivor.forEach((s, j) => {
+          const d = Math.abs(s.getBoundingClientRect().left - kant);
+          if (d < basta) { basta = d; i = j; }
+        });
+      } else {
+        skivor.forEach((s, j) => { if (s.getBoundingClientRect().top <= h * 0.5) i = j; });
+      }
       if (i === aktiv) return;
       aktiv = i;
       lankar.forEach((a, j) => {
@@ -69,26 +167,15 @@
     };
 
     let vantar = false;
-    addEventListener('scroll', () => {
+    const snart = () => {
       if (vantar) return;
       vantar = true;
       requestAnimationFrame(() => { vantar = false; uppdatera(); });
-    }, { passive: true });
-    addEventListener('resize', uppdatera);
+    };
+    addEventListener('scroll', snart, { passive: true });
+    lager.addEventListener('scroll', snart, { passive: true });
+    addEventListener('resize', snart);
     uppdatera();
-
-    // Var skivan ligger i flödet, oavsett om den just nu sitter fast
-    const malPunkt = (i) => {
-      let y = lager.getBoundingClientRect().top + scrollY;
-      for (let j = 0; j < i; j++) {
-        y += skivor[j].offsetHeight + parseFloat(getComputedStyle(skivor[j]).marginBottom);
-      }
-      const stil = getComputedStyle(skivor[i]);
-      return y - (stil.position === 'sticky' ? parseFloat(stil.top) : 20);
-    };
-    const hoppa = (i) => {
-      scrollTo({ top: malPunkt(i), behavior: lugn.matches ? 'auto' : 'smooth' });
-    };
 
     lankar.forEach((a, i) => a.addEventListener('click', (e) => {
       e.preventDefault();

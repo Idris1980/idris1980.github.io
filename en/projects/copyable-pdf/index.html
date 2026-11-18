@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#141413">
+  <title>Markdown to Copyable PDF – Idris Altun</title>
+  <meta name="description" content="A VS Code extension that turns Markdown into PDF.">
+  <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../../typsnitt/familjen-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../style.css">
+  <link rel="alternate" hreflang="sv" href="../../../projekt/copyable-pdf/">
+  <script src="../../../sida.js" defer></script>
+</head>
+<body>
+<div class="sida">
+
+  <header class="topp">
+    <a class="namn" href="../../">Idris Altun</a>
+    <nav>
+      <a href="../../#copyable-pdf">All projects</a>
+      <a href="../../#contact">Contact</a>
+      <a href="../../../projekt/copyable-pdf/" lang="sv">Svenska</a>
+    </nav>
+  </header>
+
+  <main class="projektsida s6">
+    <article class="projekt-kort">
+      <div class="skiva-topp"><a class="tillbaka streck" href="../../#copyable-pdf">← All projects</a><span class="status">Open source</span></div>
+      <p class="nummer">06 / 06</p>
+      <h1>Markdown to Copyable PDF</h1>
+      <p class="rubrik-text">A VS Code extension that turns Markdown into PDF.</p>
+      <p class="vagar"><a class="streck" href="https://marketplace.visualstudio.com/items?itemName=idris1980.copyable-pdf">Install in VS Code</a> <a class="streck" href="https://github.com/Idris1980/copyable-pdf">Code</a></p>
+    </article>
+
+    <section class="projekt-del projekt-varfor">
+      <div class="projekt-bild">
+        <svg class="flode" viewBox="0 0 420 200" role="img" aria-label="A Markdown file goes through the extension and becomes a PDF where commands can be copied and diagrams are drawn in.">
+              <path class="linje flod" d="M104 100 H140"/>
+              <path class="linje flod" d="M250 100 H290"/>
+              <g class="n d1"><rect x="4" y="80" width="100" height="40" rx="8"/><text x="54" y="100">README.md</text></g>
+              <g class="n huvud d2"><rect x="140" y="74" width="110" height="52" rx="10"/><text x="195" y="100">Extension</text></g>
+              <g class="n d3">
+                <rect x="290" y="8" width="126" height="184" rx="6"/>
+                <text class="ab liten" x="302" y="26">PDF</text>
+                <rect class="rad" x="302" y="40" width="92" height="4" rx="2"/>
+                <rect class="rad" x="302" y="50" width="68" height="4" rx="2"/>
+                <rect class="kod" x="302" y="64" width="102" height="30" rx="4"/>
+                <text class="ab" x="312" y="79">az login</text>
+                <text class="ab liten" x="302" y="110">✓ copies cleanly</text>
+                <rect class="fylld" x="302" y="130" width="38" height="20" rx="3"/>
+                <rect class="fylld" x="362" y="160" width="38" height="20" rx="3"/>
+                <path class="linje" d="M340 140 C 352 140 350 170 362 170"/>
+              </g>
+            </svg>
+      </div>
+      <div>
+        <h2 class="etikett">Why</h2>
+        <p>Most tools that turn Markdown into PDF break long commands at the page edge. When you copy the command, the line break comes along and the terminal runs half a command.</p>
+        <p>I needed PDFs where commands can be copied and pasted without breaking, so I built an extension where every code line can be copied exactly as written.</p>
+      </div>
+    </section>
+
+    <section class="projekt-del">
+      <h2 class="etikett">How it works</h2>
+      <ol class="punkter">
+        <li><strong>Splits long commands correctly.</strong> A backtick for PowerShell, a backslash for bash and ^ for cmd, before the parameters so each parameter stays with its value.</li>
+        <li><strong>Shrinks what can't be split.</strong> YAML, JSON and long quoted strings are printed just small enough for every line to fit.</li>
+        <li><strong>Warns while you type.</strong> Lines that will be split or won't fit are marked right in the editor.</li>
+        <li><strong>Checks afterwards.</strong> The finished PDF is read with PDFium, the same engine Edge and Chrome use when you copy, and lines that can't be copied in full are flagged.</li>
+        <li><strong>Mermaid offline.</strong> Diagrams are drawn with a copy that ships with the extension.</li>
+        <li><strong>Signed releases.</strong> On the Visual Studio Marketplace and as signed files on GitHub.</li>
+      </ol>
+    </section>
+
+    <section class="projekt-del">
+      <h2 class="etikett">Built with</h2>
+      <ul class="chips">
+        <li>JavaScript</li>
+        <li>VS Code</li>
+        <li>Python</li>
+      </ul>
+    </section>
+
+    <nav class="nasta s1" aria-label="Next project">
+      <a href="../lookfirst/"><span>Next project</span><strong>LookFirst →</strong></a>
+    </nav>
+  </main>
+
+  <footer class="sidfot">
+    <span>Idris Altun</span>
+    <span>idrisaltun.com</span>
+  </footer>
+</div>
+</body>
+</html>

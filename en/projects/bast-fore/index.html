@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#141413">
+  <title>Bäst före – Idris Altun</title>
+  <meta name="description" content="Shows what in a Microsoft environment is about to stop working.">
+  <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../../typsnitt/familjen-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../style.css">
+  <link rel="alternate" hreflang="sv" href="../../../projekt/bast-fore/">
+  <script src="../../../sida.js" defer></script>
+</head>
+<body>
+<div class="sida">
+
+  <header class="topp">
+    <a class="namn" href="../../">Idris Altun</a>
+    <nav>
+      <a href="../../#bast-fore">All projects</a>
+      <a href="../../#contact">Contact</a>
+      <a href="../../../projekt/bast-fore/" lang="sv">Svenska</a>
+    </nav>
+  </header>
+
+  <main class="projektsida s4">
+    <article class="projekt-kort">
+      <div class="skiva-topp"><a class="tillbaka streck" href="../../#bast-fore">← All projects</a><span class="status">Open source</span></div>
+      <p class="nummer">04 / 06</p>
+      <h1>Bäst före</h1>
+      <p class="rubrik-text">Shows what in a Microsoft environment is about to stop working.</p>
+      <p class="vagar"><a class="streck" href="https://github.com/Idris1980/bast-fore">Code</a></p>
+    </article>
+
+    <section class="projekt-del projekt-varfor">
+      <div class="projekt-bild">
+        <svg class="flode" viewBox="0 0 420 200" role="img" aria-label="Bäst före reads your tenant with read-only access and finds expiring secrets, apps with no owner and connections tied to one person.">
+              <path class="linje flod" d="M104 100 H150"/>
+              <text class="liten" x="127" y="66">Read only</text>
+              <path class="linje flod" d="M254 100 C 269 100 269 30 284 30"/>
+              <path class="linje flod" d="M254 100 H284"/>
+              <path class="linje flod" d="M254 100 C 269 100 269 170 284 170"/>
+              <g class="n d1"><rect x="4" y="80" width="100" height="40" rx="8"/><text x="54" y="100">Your tenant</text></g>
+              <g class="n huvud d2"><rect x="150" y="74" width="104" height="52" rx="10"/><text x="202" y="100">Bäst före</text></g>
+              <g class="n varn d3"><rect x="284" y="12" width="132" height="36" rx="8"/><text x="350" y="30">Expiring secret</text></g>
+              <g class="n varn d4"><rect x="284" y="82" width="132" height="36" rx="8"/><text x="350" y="100">App with no owner</text></g>
+              <g class="n varn d5"><rect x="284" y="152" width="132" height="36" rx="8"/><text x="350" y="170">Tied to one person</text></g>
+            </svg>
+      </div>
+      <div>
+        <h2 class="etikett">Why</h2>
+        <p>When an app secret expires, or when the person who signed in a connection leaves, integrations stop working. Often nobody notices until something has broken.</p>
+        <p>Bäst före (Swedish for "best before") shows what's about to stop working while there's still time to change it.</p>
+      </div>
+    </section>
+
+    <section class="projekt-del">
+      <h2 class="etikett">How it works</h2>
+      <ol class="punkter">
+        <li><strong>Expiring secrets and certificates</strong> in app registrations and enterprise apps, grouped by urgency: broken now, within 14 days and within 60 days.</li>
+        <li><strong>Apps without an owner.</strong> Apps that still work but where nobody will rotate the key.</li>
+        <li><strong>Logic Apps connections</strong> signed in with a person's account, across every subscription you can see.</li>
+        <li><strong>The common trap.</strong> Also warns when an app has both an old and a new key, since someone may never have switched the client.</li>
+        <li><strong>Read only.</strong> The tool never sees the secrets themselves, only names, expiry dates and who is signed in.</li>
+      </ol>
+    </section>
+
+    <section class="projekt-del">
+      <h2 class="etikett">Built with</h2>
+      <ul class="chips">
+        <li>Python</li>
+        <li>Microsoft Graph</li>
+        <li>Entra ID</li>
+        <li>Logic Apps</li>
+      </ul>
+    </section>
+
+    <nav class="nasta s5" aria-label="Next project">
+      <a href="../swapp/"><span>Next project</span><strong>Swapp →</strong></a>
+    </nav>
+  </main>
+
+  <footer class="sidfot">
+    <span>Idris Altun</span>
+    <span>idrisaltun.com</span>
+  </footer>
+</div>
+</body>
+</html>

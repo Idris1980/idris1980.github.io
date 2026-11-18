@@ -33,13 +33,21 @@
         <h1>Idris <span>Altun</span></h1>
         <p class="ingress">Jag utbildar mig inom moln och infrastruktur och bygger egna verktyg vid sidan av. <em>Det mesta i Azure, AWS och Microsoft 365, och alltid med säkerheten först.</em></p>
         <p class="vidare">Sex projekt, lagda lager på lager. <a class="streck" href="#projekt">Skrolla ner</a></p>
-      </div>
-      <div class="stapel-ram" aria-hidden="true">
-        <div class="stapel">
-          <div class="platta azure">Azure</div>
-          <div class="platta aws">AWS</div>
-          <div class="platta m365">Microsoft 365</div>
+        <div class="senast">
+          <p class="senast-rubrik">Senast</p>
+          <ul>
+            <li><time datetime="2026-11-17">17 nov</time><span>LookFirst och Markdown to Copyable PDF publicerade på <a class="streck" href="https://marketplace.visualstudio.com/publishers/idris1980">VS Code Marketplace</a></span></li>
+            <li><time datetime="2026-11-10">10 nov</time><span>idrisaltun.com lanserad</span></li>
+          </ul>
         </div>
+      </div>
+      <div class="stapel-ram">
+        <div class="stapel" role="group" aria-label="Molnen jag bygger i">
+          <button type="button" class="platta azure" aria-pressed="false" data-p="lookfirst boendeportalen cleanroom bast-fore">Azure</button>
+          <button type="button" class="platta aws" aria-pressed="false" data-p="lookfirst">AWS</button>
+          <button type="button" class="platta m365" aria-pressed="false" data-p="bast-fore">Microsoft 365</button>
+        </div>
+        <p class="stapel-info" aria-live="polite" data-tips="Klicka på en platta för att se projekten i den">Klicka på en platta för att se projekten i den</p>
       </div>
     </div>
 
@@ -49,6 +57,7 @@
         <p>Det jag har lagt mest tid på ligger först. En del av koden är öppen, resten visar jag gärna om du hör av dig.</p>
       </div>
 
+      <p class="svep-tips">Svep åt sidan för nästa projekt →</p>
       <ol class="lager">
 
         <li class="skiva s1" id="lookfirst"><article>
@@ -74,7 +83,7 @@
               <p class="detalj">Publicerad på Visual Studio Marketplace, så vem som helst kan installera den direkt i VS Code. Finns också som kommandorad, GitHub Action och webbsida. Releaserna är signerade.</p>
             </div>
             <p class="teknik">Go / VS Code / Terraform / Bicep / CloudFormation / GitHub Actions</p>
-            <p class="vagar"><a class="streck" href="https://marketplace.visualstudio.com/items?itemName=idris1980.lookfirst">Installera i VS Code</a> <a class="streck" href="https://github.com/Idris1980/lookfirst">Koden</a> <a class="streck" href="https://idris1980.github.io/lookfirst/">Prova på webben</a></p>
+            <p class="vagar"><a class="streck las-mer" href="projekt/lookfirst/">Läs mer</a> <a class="streck" href="https://marketplace.visualstudio.com/items?itemName=idris1980.lookfirst">Installera i VS Code</a> <a class="streck" href="https://github.com/Idris1980/lookfirst">Koden</a> <a class="streck" href="https://idris1980.github.io/lookfirst/">Prova på webben</a></p>
           </div>
         </article></li>
 
@@ -103,7 +112,7 @@
               <p class="detalj">API och webhooks för andra system, revisionslogg och GDPR-export. Allt sätts upp med skript och ARM-mallar.</p>
             </div>
             <p class="teknik">Python / Container Apps / Cosmos DB / Key Vault / Entra External ID</p>
-            <p class="vagar"><span>Visas gärna på förfrågan</span></p>
+            <p class="vagar"><a class="streck las-mer" href="projekt/boendeportalen/">Läs mer</a> <span>Visas gärna på förfrågan</span></p>
           </div>
         </article></li>
 
@@ -131,7 +140,7 @@
               <p>Ett kommando bygger en Azure SQL-databas som inte syns på internet alls. Utvecklaren kommer åt den genom en tunnel via Azure Relay med sin vanliga inloggning, utan lösenord eller nycklar. När jobbet är klart river ett annat kommando allt.</p>
             </div>
             <p class="teknik">Go / Bicep / Azure SQL / Azure Relay / privata nätverk</p>
-            <p class="vagar"><a class="streck" href="https://github.com/Idris1980/cleanroom">Koden</a></p>
+            <p class="vagar"><a class="streck las-mer" href="projekt/cleanroom/">Läs mer</a> <a class="streck" href="https://github.com/Idris1980/cleanroom">Koden</a></p>
           </div>
         </article></li>
 
@@ -158,7 +167,7 @@
               <p>Appnycklar och certifikat som går ut, appar som ingen äger längre och kopplingar i Logic Apps som hänger på en enda person. Verktyget behöver bara läsbehörighet. När jag körde det mot min egen tenant hittade det tre appar utan ägare.</p>
             </div>
             <p class="teknik">Python / Microsoft Graph / Entra ID / Logic Apps</p>
-            <p class="vagar"><a class="streck" href="https://github.com/Idris1980/bast-fore">Koden</a></p>
+            <p class="vagar"><a class="streck las-mer" href="projekt/bast-fore/">Läs mer</a> <a class="streck" href="https://github.com/Idris1980/bast-fore">Koden</a></p>
           </div>
         </article></li>
 
@@ -184,7 +193,7 @@
               <p class="detalj">Appen saknar behörighet till internet helt, så ingenting kan lämna telefonen.</p>
             </div>
             <p class="teknik">Kotlin / Jetpack Compose / Android</p>
-            <p class="vagar"><span>Visas gärna på förfrågan</span></p>
+            <p class="vagar"><a class="streck las-mer" href="projekt/swapp/">Läs mer</a> <span>Visas gärna på förfrågan</span></p>
           </div>
         </article></li>
 
@@ -218,7 +227,7 @@
               <p class="detalj">Publicerad på Visual Studio Marketplace, så vem som helst kan installera den direkt i VS Code.</p>
             </div>
             <p class="teknik">JavaScript / VS Code / Python</p>
-            <p class="vagar"><a class="streck" href="https://marketplace.visualstudio.com/items?itemName=idris1980.copyable-pdf">Installera i VS Code</a> <a class="streck" href="https://github.com/Idris1980/copyable-pdf">Koden</a></p>
+            <p class="vagar"><a class="streck las-mer" href="projekt/copyable-pdf/">Läs mer</a> <a class="streck" href="https://marketplace.visualstudio.com/items?itemName=idris1980.copyable-pdf">Installera i VS Code</a> <a class="streck" href="https://github.com/Idris1980/copyable-pdf">Koden</a></p>
           </div>
         </article></li>
 
@@ -230,21 +239,22 @@
       <div class="kunskaper">
         <div>
           <h3>Azure</h3>
-          <p>Container Apps, Azure SQL, Cosmos DB, Key Vault, Relay, Logic Apps, Functions, privata nätverk, Bicep och ARM.</p>
+          <p><button type="button" class="ord" data-p="boendeportalen">Container Apps</button>, <button type="button" class="ord" data-p="cleanroom">Azure SQL</button>, <button type="button" class="ord" data-p="boendeportalen">Cosmos DB</button>, <button type="button" class="ord" data-p="boendeportalen">Key Vault</button>, <button type="button" class="ord" data-p="cleanroom">Relay</button>, <button type="button" class="ord" data-p="bast-fore">Logic Apps</button>, Functions, <button type="button" class="ord" data-p="cleanroom">privata nätverk</button>, <button type="button" class="ord" data-p="lookfirst cleanroom">Bicep</button> och <button type="button" class="ord" data-p="boendeportalen">ARM</button>.</p>
         </div>
         <div>
           <h3>AWS</h3>
-          <p>CloudFormation, VPC och säkerhetsgrupper, IAM och AWS CLI.</p>
+          <p><button type="button" class="ord" data-p="lookfirst">CloudFormation</button>, <button type="button" class="ord" data-p="lookfirst">VPC och säkerhetsgrupper</button>, IAM och AWS CLI.</p>
         </div>
         <div>
           <h3>Microsoft 365</h3>
-          <p>Entra ID, Conditional Access, PIM, Intune, Autopilot, SharePoint och Purview.</p>
+          <p><button type="button" class="ord" data-p="bast-fore boendeportalen">Entra ID</button>, Conditional Access, PIM, Intune, Autopilot, SharePoint och Purview.</p>
         </div>
         <div>
           <h3>Kod och automation</h3>
-          <p>PowerShell, Python, Go, Terraform, GitHub Actions och git.</p>
+          <p>PowerShell, <button type="button" class="ord" data-p="boendeportalen bast-fore copyable-pdf">Python</button>, <button type="button" class="ord" data-p="lookfirst cleanroom">Go</button>, <button type="button" class="ord" data-p="lookfirst">Terraform</button>, <button type="button" class="ord" data-p="lookfirst copyable-pdf">GitHub Actions</button> och git.</p>
         </div>
       </div>
+      <p class="bevis" aria-live="polite" data-tips="Peka på en understruken teknik för att se var den finns i projekten." data-finns="finns i" data-och="och">Peka på en understruken teknik för att se var den finns i projekten.</p>
     </section>
 
     <section id="kontakt" class="kontakt">

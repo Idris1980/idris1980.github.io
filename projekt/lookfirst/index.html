@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#141413">
+  <title>LookFirst – Idris Altun</title>
+  <meta name="description" content="Visar vad AI-skriven kod gör innan du kör den.">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../typsnitt/familjen-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="alternate" hreflang="en" href="../../en/projects/lookfirst/">
+  <script src="../../sida.js" defer></script>
+</head>
+<body>
+<div class="sida">
+
+  <header class="topp">
+    <a class="namn" href="../../">Idris Altun</a>
+    <nav>
+      <a href="../../#lookfirst">Alla projekt</a>
+      <a href="../../#kontakt">Kontakt</a>
+      <a href="../../en/projects/lookfirst/" lang="en">English</a>
+    </nav>
+  </header>
+
+  <main class="projektsida s1">
+    <article class="projekt-kort">
+      <div class="skiva-topp"><a class="tillbaka streck" href="../../#lookfirst">← Alla projekt</a><span class="status">Öppen kod</span></div>
+      <p class="nummer">01 / 06</p>
+      <h1>LookFirst</h1>
+      <p class="rubrik-text">Visar vad AI-skriven kod gör innan du kör den.</p>
+      <p class="vagar"><a class="streck" href="https://marketplace.visualstudio.com/items?itemName=idris1980.lookfirst">Installera i VS Code</a> <a class="streck" href="https://github.com/Idris1980/lookfirst">Koden</a> <a class="streck" href="https://idris1980.github.io/lookfirst/">Prova på webben</a></p>
+    </article>
+
+    <section class="projekt-del projekt-varfor">
+      <div class="projekt-bild">
+        <svg class="flode" viewBox="0 0 420 200" role="img" aria-label="AI-kod går in i LookFirst, som visar vad som byggs, hur delarna hänger ihop och var säkerhetsluckorna finns.">
+              <path class="linje flod" d="M104 100 H146"/>
+              <path class="linje flod" d="M266 100 C 280 100 280 30 294 30"/>
+              <path class="linje flod" d="M266 100 H294"/>
+              <path class="linje flod" d="M266 100 C 280 100 280 170 294 170"/>
+              <g class="n d1"><rect x="4" y="80" width="100" height="40" rx="8"/><text x="54" y="100">AI-kod</text></g>
+              <g class="n huvud d2"><rect x="146" y="74" width="120" height="52" rx="10"/><text x="206" y="100">LookFirst</text></g>
+              <g class="n d3"><rect x="294" y="12" width="122" height="36" rx="8"/><text x="355" y="30">Vad som byggs</text></g>
+              <g class="n d4"><rect x="294" y="82" width="122" height="36" rx="8"/><text x="355" y="100">Kopplingar</text></g>
+              <g class="n varn d5"><rect x="294" y="152" width="122" height="36" rx="8"/><text x="355" y="170">Säkerhetsluckor</text></g>
+            </svg>
+      </div>
+      <div>
+        <h2 class="etikett">Varför</h2>
+        <p>Kod från en AI, ett forum eller en guide fungerar ofta, och gör ofta mer än man tror. Den kan öppna servern mot hela internet, skriva lösenord i filer, ladda ner och köra andra skript eller starta sig själv varje gång man loggar in.</p>
+        <p>LookFirst läser koden utan att köra den och visar vad den skulle bygga innan något händer.</p>
+      </div>
+    </section>
+
+    <section class="projekt-del">
+      <h2 class="etikett">Så fungerar den</h2>
+      <ol class="punkter">
+        <li><strong>Läser utan att köra.</strong> Terraform, Bicep, CloudFormation och skript granskas som text, så inget skapas och inget kostar.</li>
+        <li><strong>Ritar vad som byggs.</strong> Nätverk och undernät blir ramar med servrarna inuti, som på Microsofts och Amazons egna diagram.</li>
+        <li><strong>Steg för steg.</strong> Varje skript i den ordning det skulle köras, med riskerna direkt under varje steg.</li>
+        <li><strong>Förklarar varför det spelar roll.</strong> Varje fynd säger vad som kan hända och hur man rättar det, med länk till Microsofts eller Amazons egna säkerhetsråd.</li>
+        <li><strong>Fångar påhittade resurser.</strong> Varje resurstyp kontrolleras mot Microsofts och Amazons egna listor, som uppdateras varje vecka.</li>
+        <li><strong>Koden stannar hos dig.</strong> Webbversionen körs helt i webbläsaren och skickar inte koden någonstans.</li>
+      </ol>
+    </section>
+
+    <section class="projekt-del">
+      <h2 class="etikett">Byggd med</h2>
+      <ul class="chips">
+        <li>Go</li>
+        <li>VS Code</li>
+        <li>Terraform</li>
+        <li>Bicep</li>
+        <li>CloudFormation</li>
+        <li>GitHub Actions</li>
+      </ul>
+    </section>
+
+    <nav class="nasta s2" aria-label="Nästa projekt">
+      <a href="../boendeportalen/"><span>Nästa projekt</span><strong>Boendeportalen →</strong></a>
+    </nav>
+  </main>
+
+  <footer class="sidfot">
+    <span>Idris Altun</span>
+    <span>idrisaltun.com</span>
+  </footer>
+</div>
+</body>
+</html>

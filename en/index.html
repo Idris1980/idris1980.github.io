@@ -33,13 +33,21 @@
         <h1>Idris <span>Altun</span></h1>
         <p class="ingress">I'm training in cloud and infrastructure, and I build my own tools on the side. <em>Mostly on Azure, AWS and Microsoft 365, and always with security first.</em></p>
         <p class="vidare">Six projects, stacked layer on layer. <a class="streck" href="#projects">Scroll down</a></p>
-      </div>
-      <div class="stapel-ram" aria-hidden="true">
-        <div class="stapel">
-          <div class="platta azure">Azure</div>
-          <div class="platta aws">AWS</div>
-          <div class="platta m365">Microsoft 365</div>
+        <div class="senast">
+          <p class="senast-rubrik">Latest</p>
+          <ul>
+            <li><time datetime="2026-11-17">17 Nov</time><span>LookFirst and Markdown to Copyable PDF published on the <a class="streck" href="https://marketplace.visualstudio.com/publishers/idris1980">VS Code Marketplace</a></span></li>
+            <li><time datetime="2026-11-10">10 Nov</time><span>idrisaltun.com launched</span></li>
+          </ul>
         </div>
+      </div>
+      <div class="stapel-ram">
+        <div class="stapel" role="group" aria-label="The clouds I build in">
+          <button type="button" class="platta azure" aria-pressed="false" data-p="lookfirst resident-portal cleanroom bast-fore">Azure</button>
+          <button type="button" class="platta aws" aria-pressed="false" data-p="lookfirst">AWS</button>
+          <button type="button" class="platta m365" aria-pressed="false" data-p="bast-fore">Microsoft 365</button>
+        </div>
+        <p class="stapel-info" aria-live="polite" data-tips="Click a layer to see the projects in it">Click a layer to see the projects in it</p>
       </div>
     </div>
 
@@ -49,6 +57,7 @@
         <p>The ones I've spent the most time on come first. Some of the code is open, and I'm happy to show the rest if you get in touch.</p>
       </div>
 
+      <p class="svep-tips">Swipe sideways for the next project →</p>
       <ol class="lager">
 
         <li class="skiva s1" id="lookfirst"><article>
@@ -74,7 +83,7 @@
               <p class="detalj">Published on the Visual Studio Marketplace, so anyone can install it straight into VS Code. Also available as a command-line tool, a GitHub Action and a web page. Releases are signed.</p>
             </div>
             <p class="teknik">Go / VS Code / Terraform / Bicep / CloudFormation / GitHub Actions</p>
-            <p class="vagar"><a class="streck" href="https://marketplace.visualstudio.com/items?itemName=idris1980.lookfirst">Install in VS Code</a> <a class="streck" href="https://github.com/Idris1980/lookfirst">Code</a> <a class="streck" href="https://idris1980.github.io/lookfirst/">Try it on the web</a></p>
+            <p class="vagar"><a class="streck las-mer" href="projects/lookfirst/">Read more</a> <a class="streck" href="https://marketplace.visualstudio.com/items?itemName=idris1980.lookfirst">Install in VS Code</a> <a class="streck" href="https://github.com/Idris1980/lookfirst">Code</a> <a class="streck" href="https://idris1980.github.io/lookfirst/">Try it on the web</a></p>
           </div>
         </article></li>
 
@@ -103,7 +112,7 @@
               <p class="detalj">An API and webhooks for other systems, an audit log and GDPR export. Everything is deployed with scripts and ARM templates.</p>
             </div>
             <p class="teknik">Python / Container Apps / Cosmos DB / Key Vault / Entra External ID</p>
-            <p class="vagar"><span>Happy to show on request</span></p>
+            <p class="vagar"><a class="streck las-mer" href="projects/resident-portal/">Read more</a> <span>Happy to show on request</span></p>
           </div>
         </article></li>
 
@@ -131,7 +140,7 @@
               <p>One command builds an Azure SQL database that isn't reachable from the internet at all. The developer gets in through a tunnel over Azure Relay using their normal sign-in, with no passwords or keys. When the work is done, another command tears everything down.</p>
             </div>
             <p class="teknik">Go / Bicep / Azure SQL / Azure Relay / private networking</p>
-            <p class="vagar"><a class="streck" href="https://github.com/Idris1980/cleanroom">Code</a></p>
+            <p class="vagar"><a class="streck las-mer" href="projects/cleanroom/">Read more</a> <a class="streck" href="https://github.com/Idris1980/cleanroom">Code</a></p>
           </div>
         </article></li>
 
@@ -158,7 +167,7 @@
               <p>App secrets and certificates that are expiring, apps nobody owns anymore, and Logic Apps connections that depend on a single person. The tool only needs read access. When I ran it against my own tenant, it found three apps without an owner.</p>
             </div>
             <p class="teknik">Python / Microsoft Graph / Entra ID / Logic Apps</p>
-            <p class="vagar"><a class="streck" href="https://github.com/Idris1980/bast-fore">Code</a></p>
+            <p class="vagar"><a class="streck las-mer" href="projects/bast-fore/">Read more</a> <a class="streck" href="https://github.com/Idris1980/bast-fore">Code</a></p>
           </div>
         </article></li>
 
@@ -184,7 +193,7 @@
               <p class="detalj">The app has no internet permission at all, so nothing can leave the phone.</p>
             </div>
             <p class="teknik">Kotlin / Jetpack Compose / Android</p>
-            <p class="vagar"><span>Happy to show on request</span></p>
+            <p class="vagar"><a class="streck las-mer" href="projects/swapp/">Read more</a> <span>Happy to show on request</span></p>
           </div>
         </article></li>
 
@@ -218,7 +227,7 @@
               <p class="detalj">Published on the Visual Studio Marketplace, so anyone can install it straight into VS Code.</p>
             </div>
             <p class="teknik">JavaScript / VS Code / Python</p>
-            <p class="vagar"><a class="streck" href="https://marketplace.visualstudio.com/items?itemName=idris1980.copyable-pdf">Install in VS Code</a> <a class="streck" href="https://github.com/Idris1980/copyable-pdf">Code</a></p>
+            <p class="vagar"><a class="streck las-mer" href="projects/copyable-pdf/">Read more</a> <a class="streck" href="https://marketplace.visualstudio.com/items?itemName=idris1980.copyable-pdf">Install in VS Code</a> <a class="streck" href="https://github.com/Idris1980/copyable-pdf">Code</a></p>
           </div>
         </article></li>
 
@@ -230,21 +239,22 @@
       <div class="kunskaper">
         <div>
           <h3>Azure</h3>
-          <p>Container Apps, Azure SQL, Cosmos DB, Key Vault, Relay, Logic Apps, Functions, private networking, Bicep and ARM.</p>
+          <p><button type="button" class="ord" data-p="resident-portal">Container Apps</button>, <button type="button" class="ord" data-p="cleanroom">Azure SQL</button>, <button type="button" class="ord" data-p="resident-portal">Cosmos DB</button>, <button type="button" class="ord" data-p="resident-portal">Key Vault</button>, <button type="button" class="ord" data-p="cleanroom">Relay</button>, <button type="button" class="ord" data-p="bast-fore">Logic Apps</button>, Functions, <button type="button" class="ord" data-p="cleanroom">private networking</button>, <button type="button" class="ord" data-p="lookfirst cleanroom">Bicep</button> and <button type="button" class="ord" data-p="resident-portal">ARM</button>.</p>
         </div>
         <div>
           <h3>AWS</h3>
-          <p>CloudFormation, VPC and security groups, IAM and the AWS CLI.</p>
+          <p><button type="button" class="ord" data-p="lookfirst">CloudFormation</button>, <button type="button" class="ord" data-p="lookfirst">VPC and security groups</button>, IAM and the AWS CLI.</p>
         </div>
         <div>
           <h3>Microsoft 365</h3>
-          <p>Entra ID, Conditional Access, PIM, Intune, Autopilot, SharePoint and Purview.</p>
+          <p><button type="button" class="ord" data-p="bast-fore resident-portal">Entra ID</button>, Conditional Access, PIM, Intune, Autopilot, SharePoint and Purview.</p>
         </div>
         <div>
           <h3>Code and automation</h3>
-          <p>PowerShell, Python, Go, Terraform, GitHub Actions and git.</p>
+          <p>PowerShell, <button type="button" class="ord" data-p="resident-portal bast-fore copyable-pdf">Python</button>, <button type="button" class="ord" data-p="lookfirst cleanroom">Go</button>, <button type="button" class="ord" data-p="lookfirst">Terraform</button>, <button type="button" class="ord" data-p="lookfirst copyable-pdf">GitHub Actions</button> and git.</p>
         </div>
       </div>
+      <p class="bevis" aria-live="polite" data-tips="Point at an underlined technology to see where it shows up in the projects." data-finns="is used in" data-och="and">Point at an underlined technology to see where it shows up in the projects.</p>
     </section>
 
     <section id="contact" class="kontakt">

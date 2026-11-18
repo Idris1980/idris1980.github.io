@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#141413">
+  <title>Markdown to Copyable PDF – Idris Altun</title>
+  <meta name="description" content="Ett VS Code-tillägg som gör PDF av Markdown.">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../typsnitt/familjen-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="alternate" hreflang="en" href="../../en/projects/copyable-pdf/">
+  <script src="../../sida.js" defer></script>
+</head>
+<body>
+<div class="sida">
+
+  <header class="topp">
+    <a class="namn" href="../../">Idris Altun</a>
+    <nav>
+      <a href="../../#copyable-pdf">Alla projekt</a>
+      <a href="../../#kontakt">Kontakt</a>
+      <a href="../../en/projects/copyable-pdf/" lang="en">English</a>
+    </nav>
+  </header>
+
+  <main class="projektsida s6">
+    <article class="projekt-kort">
+      <div class="skiva-topp"><a class="tillbaka streck" href="../../#copyable-pdf">← Alla projekt</a><span class="status">Öppen kod</span></div>
+      <p class="nummer">06 / 06</p>
+      <h1>Markdown to Copyable PDF</h1>
+      <p class="rubrik-text">Ett VS Code-tillägg som gör PDF av Markdown.</p>
+      <p class="vagar"><a class="streck" href="https://marketplace.visualstudio.com/items?itemName=idris1980.copyable-pdf">Installera i VS Code</a> <a class="streck" href="https://github.com/Idris1980/copyable-pdf">Koden</a></p>
+    </article>
+
+    <section class="projekt-del projekt-varfor">
+      <div class="projekt-bild">
+        <svg class="flode" viewBox="0 0 420 200" role="img" aria-label="En Markdown-fil går genom tillägget och blir en PDF där kommandon går att kopiera och diagram är inritade.">
+              <path class="linje flod" d="M104 100 H140"/>
+              <path class="linje flod" d="M250 100 H290"/>
+              <g class="n d1"><rect x="4" y="80" width="100" height="40" rx="8"/><text x="54" y="100">README.md</text></g>
+              <g class="n huvud d2"><rect x="140" y="74" width="110" height="52" rx="10"/><text x="195" y="100">Tillägget</text></g>
+              <g class="n d3">
+                <rect x="290" y="8" width="126" height="184" rx="6"/>
+                <text class="ab liten" x="302" y="26">PDF</text>
+                <rect class="rad" x="302" y="40" width="92" height="4" rx="2"/>
+                <rect class="rad" x="302" y="50" width="68" height="4" rx="2"/>
+                <rect class="kod" x="302" y="64" width="102" height="30" rx="4"/>
+                <text class="ab" x="312" y="79">az login</text>
+                <text class="ab liten" x="302" y="110">✓ går att kopiera</text>
+                <rect class="fylld" x="302" y="130" width="38" height="20" rx="3"/>
+                <rect class="fylld" x="362" y="160" width="38" height="20" rx="3"/>
+                <path class="linje" d="M340 140 C 352 140 350 170 362 170"/>
+              </g>
+            </svg>
+      </div>
+      <div>
+        <h2 class="etikett">Varför</h2>
+        <p>De flesta verktyg som gör PDF av Markdown bryter långa kommandon vid sidkanten. Kopierar man kommandot följer radbrytningen med, och terminalen kör halva kommandot.</p>
+        <p>Jag behövde PDF:er där kommandona går att kopiera och klistra in utan att något går sönder, så jag byggde ett tillägg där varje kodrad går att kopiera exakt som den står.</p>
+      </div>
+    </section>
+
+    <section class="projekt-del">
+      <h2 class="etikett">Så fungerar den</h2>
+      <ol class="punkter">
+        <li><strong>Delar långa kommandon rätt.</strong> Backtick för PowerShell, backslash för bash och ^ för cmd, före parametrarna så att varje parameter stannar ihop med sitt värde.</li>
+        <li><strong>Krymper det som inte går att dela.</strong> YAML, JSON och långa citat skrivs ut i lagom mindre stil så att varje rad får plats.</li>
+        <li><strong>Varnar medan du skriver.</strong> Rader som kommer att delas eller inte får plats markeras direkt i editorn.</li>
+        <li><strong>Kontrollerar efteråt.</strong> Den färdiga PDF:en läses med PDFium, samma motor som Edge och Chrome använder när man kopierar, och rader som inte går att kopiera hela markeras.</li>
+        <li><strong>Mermaid utan internet.</strong> Diagrammen ritas med en kopia som följer med tillägget.</li>
+        <li><strong>Signerade versioner.</strong> Finns på Visual Studio Marketplace och som signerade filer på GitHub.</li>
+      </ol>
+    </section>
+
+    <section class="projekt-del">
+      <h2 class="etikett">Byggd med</h2>
+      <ul class="chips">
+        <li>JavaScript</li>
+        <li>VS Code</li>
+        <li>Python</li>
+      </ul>
+    </section>
+
+    <nav class="nasta s1" aria-label="Nästa projekt">
+      <a href="../lookfirst/"><span>Nästa projekt</span><strong>LookFirst →</strong></a>
+    </nav>
+  </main>
+
+  <footer class="sidfot">
+    <span>Idris Altun</span>
+    <span>idrisaltun.com</span>
+  </footer>
+</div>
+</body>
+</html>

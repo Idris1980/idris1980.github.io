@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#141413">
+  <title>Cleanroom – Idris Altun</title>
+  <meta name="description" content="En tillfällig, privat databas i Azure på runt fem minuter.">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../typsnitt/familjen-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="alternate" hreflang="en" href="../../en/projects/cleanroom/">
+  <script src="../../sida.js" defer></script>
+</head>
+<body>
+<div class="sida">
+
+  <header class="topp">
+    <a class="namn" href="../../">Idris Altun</a>
+    <nav>
+      <a href="../../#cleanroom">Alla projekt</a>
+      <a href="../../#kontakt">Kontakt</a>
+      <a href="../../en/projects/cleanroom/" lang="en">English</a>
+    </nav>
+  </header>
+
+  <main class="projektsida s3">
+    <article class="projekt-kort">
+      <div class="skiva-topp"><a class="tillbaka streck" href="../../#cleanroom">← Alla projekt</a><span class="status">Öppen kod</span></div>
+      <p class="nummer">03 / 06</p>
+      <h1>Cleanroom</h1>
+      <p class="rubrik-text">En tillfällig, privat databas i Azure på runt fem minuter.</p>
+      <p class="vagar"><a class="streck" href="https://github.com/Idris1980/cleanroom">Koden</a></p>
+    </article>
+
+    <section class="projekt-del projekt-varfor">
+      <div class="projekt-bild">
+        <svg class="flode" viewBox="0 0 420 200" role="img" aria-label="Utvecklaren når databasen genom en tunnel via Azure Relay. Databasen ligger i ett privat nätverk som internet inte kommer åt.">
+              <rect class="ram" x="262" y="66" width="154" height="128" rx="12"/>
+              <text class="ab liten" x="276" y="84">Privat nätverk</text>
+              <path class="linje flod" d="M108 130 H150"/>
+              <path class="linje flod" d="M234 130 H280"/>
+              <path class="linje stoppad" d="M234 31 C 300 31 339 40 339 66"/>
+              <path class="kryss" d="M292 26 l12 12 M304 26 l-12 12"/>
+              <text class="liten" x="150" y="178">Vanlig inloggning, inga lösenord</text>
+              <g class="n d1"><rect x="4" y="110" width="104" height="40" rx="8"/><text x="56" y="130">Utvecklare</text></g>
+              <g class="n huvud d2"><rect x="150" y="108" width="84" height="44" rx="9"/><text x="192" y="130">Relay</text></g>
+              <g class="n d3"><rect x="280" y="110" width="118" height="40" rx="8"/><text x="339" y="130">Azure SQL</text></g>
+              <g class="n d4"><rect x="150" y="14" width="84" height="34" rx="8"/><text x="192" y="31">Internet</text></g>
+            </svg>
+      </div>
+      <div>
+        <h2 class="etikett">Varför</h2>
+        <p>En utvecklare som behöver en riktig databas att testa mot har oftast två dåliga val: öppna en databas mot internet "bara en stund", eller vänta i dagar på att någon sätter upp en miljö, ett VPN och behörigheter.</p>
+        <p>Cleanroom ger varje utvecklare en egen privat sandlåda som går att förstöra och slänga när jobbet är klart.</p>
+      </div>
+    </section>
+
+    <section class="projekt-del">
+      <h2 class="etikett">Så fungerar den</h2>
+      <ol class="punkter">
+        <li><strong>cleanroom up</strong> skapar en isolerad Azure-miljö med en SQL-databas som inte går att nå från internet. Den är klar på runt fem minuter.</li>
+        <li><strong>cleanroom connect</strong> öppnar en privat tunnel från datorn till databasen via Azure Relay. Båda sidor ringer ut, så ingen port behöver öppnas.</li>
+        <li><strong>Inga lösenord eller nycklar.</strong> Man loggar in med sitt vanliga konto i Entra ID.</li>
+        <li><strong>Privat nätverk.</strong> Databasen nås bara genom en privat anslutning, och den publika åtkomsten är avstängd.</li>
+        <li><strong>cleanroom down</strong> tar bort allt igen, även kostnaden.</li>
+      </ol>
+    </section>
+
+    <section class="projekt-del">
+      <h2 class="etikett">Byggd med</h2>
+      <ul class="chips">
+        <li>Go</li>
+        <li>Bicep</li>
+        <li>Azure SQL</li>
+        <li>Azure Relay</li>
+        <li>privata nätverk</li>
+      </ul>
+    </section>
+
+    <nav class="nasta s4" aria-label="Nästa projekt">
+      <a href="../bast-fore/"><span>Nästa projekt</span><strong>Bäst före →</strong></a>
+    </nav>
+  </main>
+
+  <footer class="sidfot">
+    <span>Idris Altun</span>
+    <span>idrisaltun.com</span>
+  </footer>
+</div>
+</body>
+</html>

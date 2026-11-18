@@ -99,6 +99,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--text); outline-
 .intro .vidare { font-size: 18px; color: var(--dampad); margin: 0; }
 .intro .vidare a { color: var(--text); }
 
+/* Det senaste som hänt */
+.senast { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--linje); max-width: 560px; }
+.senast-rubrik { margin: 0 0 10px; font-size: 14px; color: var(--svag); }
+.senast ul { list-style: none; margin: 0; padding: 0; }
+.senast li { display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 4px 0; font-size: 16px; color: var(--dampad); }
+.senast time { color: var(--text); font-variant-numeric: tabular-nums; }
+.senast a { color: var(--text); }
+
 /* Stapeln med tre plattor */
 .stapel-ram {
   display: flex;
@@ -126,15 +134,37 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--text); outline-
   font-weight: 700;
   font-size: 19px;
   letter-spacing: -0.01em;
-  transform: translateZ(calc(var(--zz) * var(--spred)));
-  transition: transform .6s cubic-bezier(.2, .8, .2, 1);
+  transform: translateZ(calc(var(--zz) * var(--spred))) translateY(var(--ut, 0px));
+  transition: transform .6s cubic-bezier(.2, .8, .2, 1), filter .4s ease, color .4s ease, border-color .3s ease;
+  font-family: inherit;
+  color: var(--text);
+  text-align: left;
+  margin: 0;
+  cursor: pointer;
 }
+.platta:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+.platta { filter: brightness(1); }
+.stapel.vald .platta { filter: brightness(0.45) saturate(0.6); color: rgba(239, 235, 228, 0.5); }
+.stapel.vald .platta[aria-pressed="true"] { filter: none; color: var(--text); --ut: -70px; border-color: rgba(239, 235, 228, 0.6); }
+.stapel-ram { flex-direction: column; gap: 8px; }
+.stapel-info { display: none; }
+.js .stapel-info {
+  display: block;
+  min-height: 3.2em;
+  max-width: 340px;
+  margin: 0;
+  text-align: center;
+  font-size: 15px;
+  color: var(--dampad);
+}
+.stapel-info strong { color: var(--text); font-weight: 600; }
+.stapel-info a { color: var(--text); }
 .platta.azure { --z: 0px;   --z2: 0px;   background: #1f2c3f; }
 .platta.aws   { --z: 54px;  --z2: 80px;  background: #3a3122; }
 .platta.m365  { --z: 108px; --z2: 160px; background: #2e2540; }
 .stapel:hover .platta { --zz: var(--z2); }
 @media (max-width: 899px) {
-  .stapel-ram { height: 230px; }
+  .stapel-ram { height: 290px; }
   .stapel { width: 160px; height: 160px; margin-top: 20px; }
   .platta { font-size: 14px; padding: 10px 12px; border-radius: 14px; }
   .platta.aws  { --z: 38px; }
@@ -221,6 +251,7 @@ h2 {
 }
 .skiva .vagar { margin: 16px 0 0; display: flex; gap: 22px; flex-wrap: wrap; font-size: 16px; }
 .skiva .vagar span { color: rgba(239, 235, 228, 0.65); }
+.skiva .vagar .las-mer { color: var(--ljus); font-weight: 600; }
 
 @media (min-width: 900px) {
   .skiva article {
@@ -422,6 +453,174 @@ h2 {
 .kunskaper h3 { font-size: 22px; margin: 0 0 8px; letter-spacing: -0.02em; }
 .kunskaper p { margin: 0; color: var(--dampad); font-size: 16.5px; }
 
+/* Tekniker som pekar på projekten */
+.ord {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: default;
+}
+.js .ord {
+  cursor: pointer;
+  color: var(--text);
+  text-decoration: underline dotted rgba(239, 235, 228, 0.45);
+  text-underline-offset: 4px;
+  transition: color .25s ease, text-decoration-color .25s ease;
+}
+.js .ord:hover, .js .ord:focus-visible, .js .ord.aktiv { color: var(--ljus); text-decoration-color: var(--ljus); }
+.bevis { display: none; }
+.js .bevis {
+  display: block;
+  min-height: 1.6em;
+  margin: 26px 0 0;
+  font-size: 18px;
+  color: var(--dampad);
+}
+.bevis strong { color: var(--text); font-weight: 600; }
+.bevis a { color: var(--text); }
+
+/* Mjuk övergång mellan sidorna */
+@view-transition { navigation: auto; }
+::view-transition-group(*) { animation-duration: .5s; animation-timing-function: cubic-bezier(.2, .8, .2, 1); }
+.skiva.s1 article, .s1 .projekt-kort { view-transition-name: lager-1; }
+.skiva.s2 article, .s2 .projekt-kort { view-transition-name: lager-2; }
+.skiva.s3 article, .s3 .projekt-kort { view-transition-name: lager-3; }
+.skiva.s4 article, .s4 .projekt-kort { view-transition-name: lager-4; }
+.skiva.s5 article, .s5 .projekt-kort { view-transition-name: lager-5; }
+.skiva.s6 article, .s6 .projekt-kort { view-transition-name: lager-6; }
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+}
+
+/* Projekten som svepbara kort på mobil och surfplatta */
+@media (max-width: 899px) {
+  .lager {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    margin: 0 -16px;
+    padding: 0 16px 28px;
+    scroll-padding: 0 16px;
+  }
+  .lager::-webkit-scrollbar { display: none; }
+  .skiva {
+    display: flex;
+    flex: 0 0 86%;
+    margin: 0;
+    scroll-snap-align: start;
+  }
+  .skiva article { flex: 1; }
+  .svep-tips { display: block; margin: -28px 0 16px; font-size: 15px; color: var(--svag); }
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .skiva article {
+        animation: svep linear both;
+        animation-timeline: view(inline);
+        animation-range: cover;
+      }
+    }
+  }
+}
+@media (min-width: 720px) and (max-width: 899px) {
+  .lager { margin: 0 -40px; padding: 0 40px 28px; scroll-padding: 0 40px; }
+  .skiva { flex-basis: 78%; }
+}
+@media (min-width: 900px) { .svep-tips { display: none; } }
+@keyframes svep {
+  0%       { transform: scale(0.92); filter: brightness(0.65); }
+  38%, 64% { transform: none; filter: none; }
+  100%     { transform: scale(0.92); filter: brightness(0.65); }
+}
+
+/* Egna sidor för projekten */
+.projektsida { padding-bottom: 40px; }
+.projekt-kort {
+  background: var(--farg);
+  border: 1px solid rgba(239, 235, 228, 0.1);
+  border-radius: 24px;
+  padding: 28px 24px 32px;
+  margin-top: 8px;
+}
+@media (min-width: 900px) { .projekt-kort { padding: 36px 48px 44px; } }
+.tillbaka { color: var(--text); }
+.projekt-kort h1 {
+  font-size: clamp(48px, 9vw, 120px);
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  margin: 12px 0 18px;
+}
+.projekt-kort .rubrik-text {
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.3;
+  max-width: 640px;
+  margin: 0;
+  color: rgba(239, 235, 228, 0.85);
+}
+.projekt-kort .vagar { margin: 28px 0 0; display: flex; gap: 24px; flex-wrap: wrap; font-size: 17px; }
+.projekt-kort .vagar span { color: rgba(239, 235, 228, 0.65); }
+
+.etikett { font-size: 26px; letter-spacing: -0.02em; margin: 0 0 16px; animation: none; }
+.projekt-del { padding: 72px 0 0; }
+.projekt-varfor { display: grid; gap: 32px 64px; align-items: center; }
+@media (min-width: 900px) { .projekt-varfor { grid-template-columns: 1.1fr 1fr; } }
+.projekt-varfor .flode { max-width: 560px; margin: 0; }
+.projekt-varfor p { margin: 0 0 16px; font-size: 19px; color: rgba(239, 235, 228, 0.88); max-width: 560px; }
+
+.punkter {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 0 40px;
+  counter-reset: punkt;
+}
+.punkter li {
+  counter-increment: punkt;
+  position: relative;
+  padding: 18px 0 18px 44px;
+  border-top: 1px solid var(--linje);
+  font-size: 17px;
+  color: rgba(239, 235, 228, 0.88);
+}
+.punkter li::before {
+  content: counter(punkt, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 19px;
+  font-size: 15px;
+  color: var(--ljus);
+  font-variant-numeric: tabular-nums;
+}
+.punkter strong { color: var(--text); }
+
+.bilder { display: grid; gap: 24px; }
+.bilder figure { margin: 0; }
+.bilder img, .bilder video { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--linje); }
+.bilder figcaption { margin-top: 10px; font-size: 15px; color: var(--dampad); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.chips li { border: 1px solid var(--linje); border-radius: 8px; padding: 6px 12px; font-size: 16px; }
+
+.nasta { margin-top: 96px; border-top: 1px solid var(--linje); }
+.nasta a { display: block; padding: 32px 0 8px; text-decoration: none; }
+.nasta span { display: block; font-size: 15px; color: var(--dampad); margin-bottom: 6px; }
+.nasta strong {
+  display: inline-block;
+  font-size: clamp(40px, 7vw, 88px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  transition: color .4s ease, transform .5s cubic-bezier(.2, .8, .2, 1);
+}
+.nasta a:hover strong, .nasta a:focus-visible strong { color: var(--ljus); transform: translateX(10px); }
+
 /* Kontakt */
 .kontakt { padding: 140px 0 120px; }
 .kontakt p { color: var(--dampad); margin: 0 0 28px; max-width: 520px; }
@@ -503,7 +702,7 @@ h2 {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .skiva article { animation: none !important; }
-  .platta, .streck, .matare, .kontakt .mejl { transition: none; }
+  .platta, .streck, .matare, .kontakt .mejl, .nasta strong { transition: none; }
   .js .flode .n, .js .flode .linje { opacity: 1; transform: none; transition: none; }
   .syns .flode .flod { animation: none; }
 }
