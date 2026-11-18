@@ -209,7 +209,10 @@ const bilder = [
     { fil: "cleanroom-sql.webp", b: 915, h: 209, sv: "Genom tunneln svarar databasen, fast den inte går att nå från internet.", en: "Through the tunnel the database answers, even though it can't be reached from the internet." },
     { fil: "cleanroom-down.webp", b: 772, h: 99, sv: "cleanroom down tar bort allt igen, och status visar att inget ligger kvar och kostar pengar.", en: "cleanroom down removes everything again, and status shows that nothing is left costing money." },
   ] },
-  { bilder: [] },
+  { bilder: [
+    { fil: "bast-fore-appar.webp", b: 960, h: 600, sv: "Rapporten delar in apparna efter hur bråttom det är. Här från demoläget, med en påhittad tenant.", en: "The report groups the apps by urgency. Shown here from demo mode, with a made-up tenant." },
+    { fil: "bast-fore-kopplingar.webp", b: 960, h: 700, sv: "Kopplingar i Logic Apps som hänger på en person, eller på ett konto som redan är borta.", en: "Logic Apps connections that depend on one person, or on an account that's already gone." },
+  ] },
   { telefon: true, bilder: [
     { fil: "swapp-min-tid.webp", b: 600, h: 1175, sv: "Dagens tid mot dagsmålet, och vad den hade räckt till.", en: "Today's time against the daily goal, and what it could have been." },
     { fil: "swapp-hellre.webp", b: 600, h: 1175, sv: "Saker man hellre vill göra, med hur lång tid de tar.", en: "Things you'd rather do, with how long they take." },
