@@ -9,13 +9,13 @@
 @property --vrid { syntax: "<angle>"; inherits: true; initial-value: 0deg; }
 
 :root {
-  --bg: #fbf5ea;
-  --text: #1a1712;
-  --dampad: #5f584c;
-  --svag: #756e62;
-  --t: 26, 23, 18;
+  --bg: #f3f5f7;
+  --text: #13202f;
+  --dampad: #4f5d6e;
+  --svag: #667385;
+  --t: 19, 32, 47;
   --linje: rgba(var(--t), 0.14);
-  --korall: #ff5a36;
+  --accent: #1f68c9;
   --typ: "Familjen Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   color-scheme: light;
 }
@@ -90,7 +90,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--text); outline-
   letter-spacing: -0.045em;
   margin: 0 0 40px;
 }
-.intro h1 span { display: block; color: var(--korall); }
+.intro h1 span { display: block; color: var(--accent); }
 .intro .ingress {
   font-size: clamp(20px, 2.2vw, 26px);
   line-height: 1.35;
@@ -154,9 +154,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--text); outline-
 }
 .stapel-info strong { color: var(--text); font-weight: 600; }
 .stapel-info a { color: var(--text); }
-.platta.azure { --z: 0px;   --z2: 0px;   background: #3d7bff; }
-.platta.aws   { --z: 54px;  --z2: 80px;  background: #ff8a3d; }
-.platta.m365  { --z: 108px; --z2: 160px; background: #9a6bff; }
+.platta.azure { --z: 0px;   --z2: 0px;   background: #2f6fd6; }
+.platta.aws   { --z: 54px;  --z2: 80px;  background: #d98a2b; }
+.platta.m365  { --z: 108px; --z2: 160px; background: #3f4f8f; }
 .stapel:hover .platta { --zz: var(--z2); }
 @media (max-width: 899px) {
   .stapel-ram { height: 290px; }
@@ -194,15 +194,15 @@ h2 {
   border: 1px solid rgba(var(--t), 0.08);
   border-radius: 24px;
   padding: 28px 24px;
-  box-shadow: 0 -18px 40px -30px rgba(80, 50, 10, 0.35);
+  box-shadow: 0 -18px 40px -30px rgba(20, 35, 60, 0.3);
   transform-origin: 50% 0;
 }
-.s1 { --i: 0; --farg: #a8ecbe; --ljus: #11713a; }
-.s2 { --i: 1; --farg: #ffc2d4; --ljus: #b0204f; }
-.s3 { --i: 2; --farg: #b8d5ff; --ljus: #1d55c4; }
-.s4 { --i: 3; --farg: #ffd966; --ljus: #7a4f00; }
-.s5 { --i: 4; --farg: #dccbff; --ljus: #5b2fc0; }
-.s6 { --i: 5; --farg: #98e8de; --ljus: #0b6e66; }
+.s1 { --i: 0; --farg: #d5e9de; --ljus: #1d6b45; }
+.s2 { --i: 1; --farg: #e4e0d7; --ljus: #66552f; }
+.s3 { --i: 2; --farg: #d5e3f4; --ljus: #1d4f94; }
+.s4 { --i: 3; --farg: #efe3c8; --ljus: #775312; }
+.s5 { --i: 4; --farg: #dde1ec; --ljus: #3b4a80; }
+.s6 { --i: 5; --farg: #d2e8e8; --ljus: #135f63; }
 
 .skiva-topp {
   display: flex;
@@ -294,7 +294,7 @@ h2 {
 .flode .linje { fill: none; stroke: rgba(var(--t), 0.35); stroke-width: 1.5; }
 .flode .flod { stroke: var(--ljus); stroke-width: 2; stroke-dasharray: 3 7; stroke-linecap: round; }
 .flode .stoppad { stroke-dasharray: 2 5; stroke: rgba(var(--t), 0.3); }
-.flode .kryss { fill: none; stroke: #d43c1a; stroke-width: 2.5; stroke-linecap: round; }
+.flode .kryss { fill: none; stroke: #c2412d; stroke-width: 2.5; stroke-linecap: round; }
 
 .js .flode .n,
 .js .flode .linje {
@@ -349,11 +349,11 @@ h2 {
   gap: 14px;
   max-width: calc(100vw - 32px);
   padding: 9px 14px;
-  background: rgba(251, 245, 234, 0.94);
+  background: rgba(243, 245, 247, 0.94);
   border: 1px solid var(--linje);
   border-radius: 10px;
   font-size: 14px;
-  box-shadow: 0 12px 32px -14px rgba(80, 50, 10, 0.4);
+  box-shadow: 0 12px 32px -14px rgba(20, 35, 60, 0.35);
   transform: translate(-50%, 160%);
   opacity: 0;
   pointer-events: none;
@@ -435,10 +435,10 @@ h2 {
   transition: width .5s cubic-bezier(.2, .8, .2, 1);
 }
 .kunskaper div:hover::before { width: calc(100% - 24px); }
-.kunskaper div:nth-child(1) { --ljus: #3d7bff; }
-.kunskaper div:nth-child(2) { --ljus: #ff8a3d; }
-.kunskaper div:nth-child(3) { --ljus: #9a6bff; }
-.kunskaper div:nth-child(4) { --ljus: #12a594; }
+.kunskaper div:nth-child(1) { --ljus: #2f6fd6; }
+.kunskaper div:nth-child(2) { --ljus: #d98a2b; }
+.kunskaper div:nth-child(3) { --ljus: #3f4f8f; }
+.kunskaper div:nth-child(4) { --ljus: #1a8a8a; }
 @media (min-width: 900px) {
   .kunskaper div { border-bottom: 0; }
   .kunskaper div + div { border-left: 1px solid var(--linje); padding-left: 24px; }
@@ -465,7 +465,7 @@ h2 {
   text-underline-offset: 4px;
   transition: color .25s ease, text-decoration-color .25s ease;
 }
-.js .ord:hover, .js .ord:focus-visible, .js .ord.aktiv { color: var(--korall); text-decoration-color: var(--korall); }
+.js .ord:hover, .js .ord:focus-visible, .js .ord.aktiv { color: var(--accent); text-decoration-color: var(--accent); }
 .bevis { display: none; }
 .js .bevis {
   display: block;
@@ -640,7 +640,7 @@ h2 {
 .kontakt .mejl.streck:hover,
 .kontakt .mejl.streck:focus-visible {
   background-size: 0 3px;
-  color: var(--korall);
+  color: var(--accent);
 }
 .kontakt .ovrigt { display: flex; gap: 28px; flex-wrap: wrap; align-items: baseline; margin-top: 36px; font-size: 17px; color: var(--text); }
 .kopiera {
@@ -652,7 +652,7 @@ h2 {
   cursor: pointer;
 }
 .kopiera:hover { color: var(--text); }
-.kopiera.klar { color: #18a058; }
+.kopiera.klar { color: #1f8a5b; }
 
 .sidfot {
   display: flex;
@@ -747,8 +747,8 @@ h2 {
   align-items: baseline;
   margin: 0 0 28px;
   padding: 12px 18px;
-  border-left: 3px solid #18a058;
-  background: rgba(24, 160, 88, 0.13);
+  border-left: 3px solid #1f8a5b;
+  background: rgba(31, 138, 91, 0.1);
   border-radius: 0 10px 10px 0;
   font-size: 18px;
 }
@@ -769,7 +769,7 @@ h2 {
   text-decoration: none;
   transition: background-color .3s ease, transform .3s cubic-bezier(.2, .8, .2, 1);
 }
-.pdf-knapp:hover { background: var(--korall); color: #fff; transform: translateY(-2px); }
+.pdf-knapp:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
 
 .cv-del { padding: 56px 0 0; }
 .cv-rubrik { font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.03em; margin: 0 0 24px; }
@@ -849,10 +849,10 @@ h2 {
   gap: 0 48px;
 }
 .cv-projekt > li { --ljus: var(--dampad); position: relative; padding: 22px 0 26px; border-top: 1px solid var(--linje); }
-.cv-projekt > li.s1 { --ljus: #18a058; }
-.cv-projekt > li.s2 { --ljus: #e2456f; }
-.cv-projekt > li.s3 { --ljus: #3d7bff; }
-.cv-projekt > li.s4 { --ljus: #e0a000; }
+.cv-projekt > li.s1 { --ljus: #2f8a5f; }
+.cv-projekt > li.s2 { --ljus: #8a7348; }
+.cv-projekt > li.s3 { --ljus: #2f6fd6; }
+.cv-projekt > li.s4 { --ljus: #c28a1e; }
 .cv-projekt > li::before { content: ""; position: absolute; top: -1px; left: 0; width: 36px; height: 3px; background: var(--ljus); }
 .cv-projekt h3 { font-size: 24px; letter-spacing: -0.02em; margin: 0 0 4px; }
 .projekt-ar { font-size: 15px; font-weight: 400; letter-spacing: 0; color: var(--dampad); margin-left: 8px; font-variant-numeric: tabular-nums; }
